@@ -112,7 +112,7 @@ A practical map of where to look — split by audience (PE, evaluation, health d
 
 ---
 
-## For Mamina — Freelance & Self-Employment
+## For Momina — Freelance & Self-Employment
 
 ### Freelance marketplaces
 

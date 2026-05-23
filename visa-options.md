@@ -4,7 +4,7 @@
 This is the headline section for the Madrid move. Two households are moving together, with quite different visa needs:
 
 - **Household A — Calum & Rose** (with one dog). Calum is an evaluation expert in education and public health; Rose works in health data at Oxford.
-- **Household B — Mamina & Jack Wotton** (with one dog and a son aged ~1). Mamina is **self-employed** running her own business; Jack works in **private equity**.
+- **Household B — Momina & Jack Watton** (with one dog and a son aged ~1). Momina is **self-employed** running her own business; Jack works in **private equity**.
 
 The right visa for each household is different. This file covers every route relevant to either household, with a recommendation per person at the end.
 
@@ -20,7 +20,7 @@ The good news: Spain has multiple well-established pathways that fit each member
 > - **Calum** → HQP visa (if employer hires under article 71) or Digital Nomad Visa
 > - **Rose** → accompany Calum as family, or apply for her own HQP
 > - **Jack** → HQP via PE firm in Madrid, or EU Blue Card if senior
-> - **Mamina** → Digital Nomad Visa (remote self-employment) **or** Autónomo (Self-Employed) Visa if business is Spain-based
+> - **Momina** → Digital Nomad Visa (remote self-employment) **or** Autónomo (Self-Employed) Visa if business is Spain-based
 
 ---
 
@@ -57,7 +57,7 @@ The HQP visa is Spain's flagship route for skilled employees with a job offer fr
 ---
 
 ## Route 2 — Digital Nomad Visa (DNV)
-**Best for: Mamina (self-employed), and possibly Rose if she can work remotely for a UK employer**
+**Best for: Momina (self-employed), and possibly Rose if she can work remotely for a UK employer**
 
 The DNV launched in early 2023 under the Startup Law. It is designed for non-EU citizens working **remotely** — either as employees of a non-Spanish company, or self-employed serving clients outside Spain.
 
@@ -73,7 +73,7 @@ The DNV launched in early 2023 under the Startup Law. It is designed for non-EU 
 - **First family member added: +75% of SMI** (~€1,068/month)
 - **Each further family member: +25% of SMI** (~€356/month per dependent)
 
-For Mamina + Jack + their son (if applying as a family unit under one DNV — though Jack and Mamina will likely each have their own visa) the indicative total minimum is around €4,300/month combined.
+For Momina + Jack + their son (if applying as a family unit under one DNV — though Jack and Momina will likely each have their own visa) the indicative total minimum is around €4,300/month combined.
 
 ### UK National Insurance / Spanish social security
 - UK self-employed applicants must either:
@@ -93,7 +93,7 @@ For Mamina + Jack + their son (if applying as a family unit under one DNV — th
 - ✓ Family included from day one with a clear income uplift formula
 - ✓ Compatible with Beckham Law (24% flat tax)
 - ✗ Income must be primarily from outside Spain
-- ✗ Mamina's business will need to evidence non-Spanish revenue mix and minimum trading history
+- ✗ Momina's business will need to evidence non-Spanish revenue mix and minimum trading history
 
 ---
 
@@ -113,9 +113,9 @@ For a PE associate in their late 20s / early 30s, the HQP route is usually easie
 ---
 
 ## Route 4 — Self-Employed (Autónomo) Visa
-**Best for: Mamina if her business is, or will be, primarily Spain-based**
+**Best for: Momina if her business is, or will be, primarily Spain-based**
 
-If Mamina's business is going to register in Spain and serve Spanish customers (rather than continue remote-only), the Autónomo Visa is the alternative to the DNV.
+If Momina's business is going to register in Spain and serve Spanish customers (rather than continue remote-only), the Autónomo Visa is the alternative to the DNV.
 
 ### Eligibility
 - 18+, no EU/EEA/Swiss nationality, clean criminal record
@@ -151,7 +151,7 @@ The NLV is for those who can support themselves **without working in Spain**. It
 - Annual passive income or capital: **€28,800** for primary applicant
 - Each dependent (spouse, child): **+€7,200/year**
 - For a couple: ~**€36,000/year**
-- For a family of three (e.g. Mamina + Jack + child): ~**€43,200/year**
+- For a family of three (e.g. Momina + Jack + child): ~**€43,200/year**
 - Comprehensive private health insurance for everyone
 - Clean criminal record, medical certificate
 
@@ -160,7 +160,7 @@ The NLV is for those who can support themselves **without working in Spain**. It
 - After 5 years: permanent residency option
 
 ### Why it's not the main route here
-- **You cannot work in Spain on an NLV** (it's "non-lucrative"). This rules it out for Calum, Rose, Jack, and Mamina if her business needs to keep operating.
+- **You cannot work in Spain on an NLV** (it's "non-lucrative"). This rules it out for Calum, Rose, Jack, and Momina if her business needs to keep operating.
 - BUT: it's the cleanest **backup** for an accompanying partner who isn't ready to apply for their own work visa.
 
 ---
@@ -179,11 +179,11 @@ Spain launched a Job-Seeker Visa for non-EU citizens who want to come to Spain t
 | **Calum** | HQP (if hired by Spanish employer) | DNV (if continuing UK/NIoT remote work); or accompany Rose |
 | **Rose** | Accompany Calum as family on his HQP | Own HQP if hired into a Spanish pharma/health-data role; or DNV |
 | **Jack** | HQP via Madrid PE firm | EU Blue Card if seniority justifies it |
-| **Mamina** | Digital Nomad Visa (self-employed, primarily non-Spanish revenue) | Autónomo Visa if Spain-based business; or accompany Jack |
+| **Momina** | Digital Nomad Visa (self-employed, primarily non-Spanish revenue) | Autónomo Visa if Spain-based business; or accompany Jack |
 
 ---
 
-## Step-by-step process (DNV — Mamina's likely route)
+## Step-by-step process (DNV — Momina's likely route)
 
 1. **Confirm income** — at least 12 months' bank statements + accountant's letter showing €34,188+/year gross from outside Spain
 2. **Business documents** — UK Companies House extract showing 1+ year of trading, client contracts/invoices
@@ -224,11 +224,11 @@ Spain launched a Job-Seeker Visa for non-EU citizens who want to come to Spain t
 | Private health insurance (proof for visa) | not needed if employer covers | required (~€60/m) | required | required |
 | **Approximate total** | **£900–£1,200** | **£900–£1,400** | **£1,100–£1,500** | **£900–£1,200** |
 
-Add Companies House documentation costs (Mamina) and Beckham Law application fees (~€200, optional but recommended).
+Add Companies House documentation costs (Momina) and Beckham Law application fees (~€200, optional but recommended).
 
 ---
 
-## Children — Mamina & Jack's son
+## Children — Momina & Jack's son
 
 The HQP, DNV and Autónomo visas all allow children to be included from day one as accompanying family members. For a child under one:
 

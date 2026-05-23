@@ -8,7 +8,7 @@ Madrid is one of Europe's growing professional hubs and the financial capital of
 - **International development & evaluation** (Calum) — UN agencies, WFP HQ, OECD-adjacent work, ECLAC, Spanish bilateral cooperation, big consultancies
 - **Health data & research** (Rose) — ISCIII, ISGlobal, IDIBAPS-adjacent Madrid hospitals, IQVIA, Cegedim, pharma analytics
 - **Private equity & financial services** (Jack) — Madrid has Iberia's largest concentration of PE and venture firms; growing as a southern-European Mediterranean alternative to London
-- **Self-employment / consultancy** (Mamina) — Spain's autónomo ecosystem is large; Madrid is the most international city to be self-employed in
+- **Self-employment / consultancy** (Momina) — Spain's autónomo ecosystem is large; Madrid is the most international city to be self-employed in
 
 Madrid is **cheaper than Paris or London** and significantly more English-tolerant than 10 years ago, particularly in tech, finance and international organisations.
 
@@ -171,9 +171,9 @@ Madrid has a meaningful health-data ecosystem, but it's more dispersed than Pari
 
 ---
 
-## For Mamina — Self-Employment & Consultancy
+## For Momina — Self-Employment & Consultancy
 
-Mamina is already self-employed — the question is whether to keep her business UK-based and serve clients remotely (→ DNV) or relocate the business to Spain (→ Autónomo Visa).
+Momina is already self-employed — the question is whether to keep her business UK-based and serve clients remotely (→ DNV) or relocate the business to Spain (→ Autónomo Visa).
 
 ### Option A: Keep UK Limited Co, work remotely via DNV
 - Maintain UK Ltd, continue invoicing UK clients
@@ -221,7 +221,7 @@ If any of you become Spanish tax-resident on a qualifying visa (HQP, DNV, even A
 | Calum | HQP (technical) | Most NIoT-equivalent roles in Spain | Beckham Law |
 | Rose | Accompany Calum / own HQP | Senior data manager roles ~€55k+ | Beckham Law |
 | Jack | HQP (managerial) or Blue Card | Easily met by PE associate/VP roles | Beckham Law |
-| Mamina | DNV (remote self-employed) | Income > €34,188/yr | Beckham Law (DNV path) |
+| Momina | DNV (remote self-employed) | Income > €34,188/yr | Beckham Law (DNV path) |
 
 ---
 

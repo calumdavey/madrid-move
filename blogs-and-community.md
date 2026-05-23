@@ -5,7 +5,7 @@
 
 Three communities to plug into:
 1. **British / anglophone expats in Madrid** — for daily-life support, friends, weekends
-2. **Family / parent groups** — particularly for Mamina & Jack with a young child
+2. **Family / parent groups** — particularly for Momina & Jack with a young child
 3. **Professional networks** — PE & finance, evaluation, health data, autónomo
 
 ---
@@ -94,7 +94,7 @@ Three communities to plug into:
 
 ---
 
-## Family & Parent Communities (Mamina & Jack's son)
+## Family & Parent Communities (Momina & Jack's son)
 
 #### MumAbroad Madrid
 - The standard reference for expat parents in Madrid
@@ -229,7 +229,7 @@ Three communities to plug into:
 
 ---
 
-## Professional Networks — Self-Employed & Freelance (Mamina)
+## Professional Networks — Self-Employed & Freelance (Momina)
 
 #### ATA — Federación Nacional de Asociaciones de Trabajadores Autónomos
 - Main autónomo body; provides business-plan stamping for visa applications

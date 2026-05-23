@@ -12,7 +12,7 @@ Madrid in 2026 sits cheaper than Paris or London, but rent has risen ~11% year-o
 | Scenario | Estimated monthly cost (incl. rent) |
 |---|---|
 | Couple, 1–2 bed, central (Calum & Rose) | €3,200–€4,500 |
-| Family of three + dog, 3-bed central (Mamina & Jack) | €4,500–€6,500 |
+| Family of three + dog, 3-bed central (Momina & Jack) | €4,500–€6,500 |
 | Family with international school fees | + €500–€1,500/child/month |
 
 ### Key costs (May 2026)
@@ -95,7 +95,7 @@ Madrid rents rose ~11% in 2025, with average asking ~€21.30/m². Demand is hig
 | **Chueca** | LGBTQ+ friendly, central, vibrant | €1,300–€1,700 | Couples; nightlife and food |
 | **Justicia** | Quieter than Chueca, central, gallery district | €1,400–€1,800 | Mid-career couples |
 
-### For Mamina & Jack (family + dog + baby)
+### For Momina & Jack (family + dog + baby)
 
 | Neighbourhood | Character | 3-bed rent | Best for |
 |---|---|---|---|
@@ -167,7 +167,7 @@ For families with young children, **Sanitas** is the most commonly recommended; 
 
 ---
 
-## 5. Schools (Mamina & Jack's son)
+## 5. Schools (Momina & Jack's son)
 
 The son is almost one — so the immediate question is **infant care / nursery (escuela infantil)**, not schools. But it's worth understanding the school pipeline because British school waiting lists are long.
 
