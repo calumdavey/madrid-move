@@ -3,352 +3,662 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moving to Madrid — Rose, Calum, Mamina &amp; Jack</title>
+  <title>Madrid · Davey & Wotton</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:    #7d1f2c;  /* Madrid red */
-      --gold:    #d4a017;  /* Madrid yellow */
-      --wine:    #4a1320;
-      --rose:    #c45a3a;  /* warm Madrid terracotta */
-      --ivory:   #f7f1e6;
-      --cream:   #fffbf2;
-      --ink:     #221e1e;
-      --muted:   #7a6f5e;
-      --border:  #e3d8c1;
-      --sidebar: 230px;
+      --carmin:    #8a1d3a;   /* Madrid wine-red */
+      --carmin-dk: #5e1027;
+      --saffron:   #e0a022;   /* saffron / azafrán */
+      --saffron-soft: #f3d989;
+      --terracotta:#c25a3a;
+      --azulejo:   #2c5d8a;   /* Spanish tile blue */
+      --olive:     #7a8654;
+      --ivory:     #f6efe2;
+      --paper:     #fbf5e9;
+      --ink:       #1f1916;
+      --muted:     #7d6f5d;
+      --border:    #ddccae;
+      --sidebar:   240px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--ivory);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(224,160,34,0.10), transparent 60%),
+        radial-gradient(900px 500px at -10% 100%, rgba(44,93,138,0.07), transparent 60%),
+        var(--ivory);
       color: var(--ink);
-      line-height: 1.72;
-      font-size: 14.5px;
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ── HEADER ── */
     header {
-      background: var(--navy);
+      background:
+        linear-gradient(135deg, var(--carmin) 0%, var(--carmin-dk) 100%);
       color: #fff;
-      padding: 2.2rem 2.5rem 2rem;
+      padding: 2.4rem 2.6rem 2.1rem;
       display: flex;
       align-items: flex-end;
       gap: 2rem;
-      border-bottom: 2px solid var(--gold);
+      position: relative;
+      overflow: hidden;
     }
-    .header-title { flex: 1; }
-    .header-title h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 2.4rem;
-      font-weight: 300;
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(45deg, transparent 0 22px, rgba(255,255,255,0.025) 22px 23px),
+        radial-gradient(circle at 90% 30%, rgba(224,160,34,0.18), transparent 50%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 4px;
+      background: linear-gradient(90deg,
+        var(--saffron) 0%, var(--saffron) 33%,
+        var(--carmin-dk) 33%, var(--carmin-dk) 66%,
+        var(--saffron) 66%, var(--saffron) 100%);
+    }
+    .header-title { flex: 1; position: relative; z-index: 1; }
+    .header-eyebrow {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: var(--saffron-soft);
       letter-spacing: 0.04em;
-      line-height: 1.15;
+      margin-bottom: 0.35rem;
     }
-    .header-title h1 em { color: var(--gold); font-style: italic; }
+    .header-title h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      line-height: 1.1;
+    }
+    .header-title h1 em {
+      color: var(--saffron);
+      font-style: italic;
+      font-weight: 300;
+    }
     .header-subtitle {
-      margin-top: 0.35rem;
-      font-size: 0.75rem;
-      color: #f0c98a;
-      letter-spacing: 0.1em;
+      margin-top: 0.6rem;
+      font-size: 0.74rem;
+      color: rgba(243,217,137,0.92);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
     .header-meta {
-      font-size: 0.74rem;
-      color: #f0c98a;
+      font-size: 0.72rem;
+      color: var(--saffron-soft);
       text-align: right;
       flex-shrink: 0;
-      line-height: 1.6;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
 
     /* ── LAYOUT ── */
-    .layout { display: flex; min-height: calc(100vh - 90px); }
+    .layout { display: flex; min-height: calc(100vh - 100px); }
 
     /* ── SIDEBAR ── */
     nav.sidebar {
       width: var(--sidebar);
       flex-shrink: 0;
-      background: var(--navy);
-      padding: 1.8rem 0 2rem;
+      background: linear-gradient(180deg, var(--carmin-dk), #4a0d1f);
+      padding: 1.6rem 0 2rem;
       position: sticky;
       top: 0;
       height: 100vh;
       overflow-y: auto;
-      border-right: 1px solid rgba(255,255,255,0.05);
+      border-right: 1px solid rgba(0,0,0,0.2);
     }
     .nav-label {
-      padding: 1.4rem 1.6rem 0.4rem;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #c89570;
+      padding: 1.4rem 1.6rem 0.45rem;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--saffron);
     }
     .nav-label:first-child { padding-top: 0.4rem; }
     nav.sidebar a {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       padding: 0.5rem 1.6rem;
-      color: #e9c89a;
+      color: rgba(243,217,137,0.78);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 400;
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
       border-left: 2px solid transparent;
     }
-    nav.sidebar a:hover  { color: #fff; border-left-color: rgba(212,160,23,0.5); }
-    nav.sidebar a.active { color: #fff; border-left-color: var(--gold); font-weight: 500; }
+    nav.sidebar a .num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: rgba(224,160,34,0.55);
+      width: 1.1rem;
+    }
+    nav.sidebar a:hover  {
+      color: #fff;
+      background: rgba(0,0,0,0.18);
+      border-left-color: rgba(224,160,34,0.5);
+    }
+    nav.sidebar a.active {
+      color: #fff;
+      border-left-color: var(--saffron);
+      background: rgba(0,0,0,0.22);
+      font-weight: 500;
+    }
+    nav.sidebar a.active .num { color: var(--saffron); }
 
     /* ── MAIN ── */
     main {
       flex: 1;
-      padding: 2.8rem 3.2rem 5rem;
-      max-width: 920px;
+      padding: 2.8rem 3.4rem 5rem;
+      max-width: 940px;
     }
 
-    /* ── PAGE SECTIONS ── */
-    .page-section { display: none; }
+    .page-section { display: none; animation: fadeIn 0.35s ease-out; }
     .page-section.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     /* ── SECTION HERO ── */
     .section-hero {
       margin-bottom: 2.2rem;
-      padding-bottom: 1.4rem;
+      padding-bottom: 1.5rem;
+      position: relative;
+    }
+    .section-hero::after {
+      content: '✦';
+      position: absolute;
+      bottom: -0.55rem;
+      left: 0;
+      background: var(--ivory);
+      color: var(--saffron);
+      font-size: 0.7rem;
+      padding-right: 0.6rem;
+    }
+    .section-hero {
       border-bottom: 1px solid var(--border);
     }
-    .section-hero h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.01em;
+    .section-eyebrow {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--terracotta);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
     }
-    .section-hero p {
+    .section-hero h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--carmin-dk);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .section-hero h2 em {
+      color: var(--saffron);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .section-hero p.lede {
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.96rem;
       max-width: 640px;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* ── CARD ── */
     .card {
-      background: var(--cream);
+      background: var(--paper);
       border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 1.6rem 2rem;
-      margin-bottom: 1.4rem;
+      border-radius: 4px;
+      padding: 1.6rem 1.9rem;
+      margin-bottom: 1.3rem;
+      position: relative;
     }
+    .card.accent { border-left: 4px solid var(--saffron); }
+    .card.azul   { border-left: 4px solid var(--azulejo); }
+    .card.terr   { border-left: 4px solid var(--terracotta); }
 
     /* ── HEADINGS ── */
     h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.2rem;
-      color: var(--navy);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.3rem;
+      color: var(--carmin-dk);
       margin-bottom: 1rem;
       font-weight: 500;
-      letter-spacing: 0.01em;
-      padding-bottom: 0.45rem;
+      letter-spacing: -0.005em;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    h3::before {
+      content: '✦';
+      color: var(--saffron);
+      font-size: 0.65rem;
+      transform: translateY(-0.2em);
     }
     h4 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1rem;
-      color: var(--navy);
-      margin: 1.1rem 0 0.4rem;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--carmin-dk);
+      margin: 1.2rem 0 0.5rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0;
     }
 
-    p { margin-bottom: 0.75rem; font-size: 0.9rem; line-height: 1.7; }
+    p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.68; }
     p:last-child { margin-bottom: 0; }
+    p.italic-flavor {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--terracotta);
+      font-size: 0.95rem;
+    }
 
-    ul, ol { padding-left: 1.3rem; margin-bottom: 0.75rem; }
-    li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+    ul, ol { padding-left: 1.3rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.3rem; font-size: 0.92rem; }
     li:last-child { margin-bottom: 0; }
+    ul.clean { list-style: none; padding-left: 0; }
+    ul.clean li { padding-left: 1rem; position: relative; }
+    ul.clean li::before {
+      content: '·';
+      color: var(--saffron);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
 
-    a { color: var(--wine); text-decoration: none; }
-    a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
-    strong { color: var(--navy); font-weight: 600; }
+    a { color: var(--azulejo); text-decoration: none; border-bottom: 1px dotted rgba(44,93,138,0.4); }
+    a:hover { color: var(--carmin); border-bottom-color: var(--carmin); }
+    strong { color: var(--carmin-dk); font-weight: 600; }
 
     /* ── TABLES ── */
-    .table-wrap { overflow-x: auto; margin: 1rem 0; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.1rem 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     th {
-      background: var(--navy);
-      color: rgba(255,255,255,0.92);
-      padding: 0.55rem 0.9rem;
+      background: var(--carmin);
+      color: #fff;
+      padding: 0.6rem 0.95rem;
       text-align: left;
       font-weight: 500;
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
     }
     td {
-      padding: 0.58rem 0.9rem;
+      padding: 0.6rem 0.95rem;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
       line-height: 1.55;
     }
     tr:last-child td { border-bottom: none; }
-    tr:nth-child(even) td { background: rgba(0,0,0,0.016); }
+    tr:nth-child(even) td { background: rgba(0,0,0,0.014); }
 
     /* ── HIGHLIGHT BOXES ── */
     .info-box {
-      border-left: 3px solid var(--gold);
-      background: rgba(212,160,23,0.08);
-      padding: 0.85rem 1.1rem;
+      border-left: 3px solid var(--saffron);
+      background: rgba(224,160,34,0.10);
+      padding: 0.9rem 1.15rem;
       margin: 1rem 0;
-      font-size: 0.88rem;
-      border-radius: 0 3px 3px 0;
+      font-size: 0.9rem;
+      border-radius: 0 4px 4px 0;
     }
-    .info-box.rose-tint  { border-left-color: var(--rose); background: rgba(196,90,58,0.07); }
-    .info-box.warn       { border-left-color: var(--wine); background: rgba(74,19,32,0.05); }
-    .info-box strong { color: var(--navy); }
+    .info-box.azul {
+      border-left-color: var(--azulejo);
+      background: rgba(44,93,138,0.07);
+    }
+    .info-box.warn {
+      border-left-color: var(--carmin-dk);
+      background: rgba(94,16,39,0.06);
+    }
+    .info-box.olive {
+      border-left-color: var(--olive);
+      background: rgba(122,134,84,0.09);
+    }
+    .info-box strong { color: var(--carmin-dk); }
+
+    /* ── KEY NUMBERS STRIP ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.7rem;
+      margin: 1.4rem 0 2rem;
+    }
+    .stat {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.85rem 1rem 0.95rem;
+      text-align: center;
+    }
+    .stat .v {
+      font-family: 'Fraunces', serif;
+      font-size: 1.55rem;
+      color: var(--carmin-dk);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+    .stat .v em { color: var(--saffron); font-style: italic; }
+    .stat .l {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.35rem;
+    }
 
     /* ── CHECKLIST ── */
     .checklist { list-style: none; padding-left: 0; }
     .checklist li {
       display: flex;
       align-items: flex-start;
-      gap: 0.7rem;
-      padding: 0.4rem 0;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
+      font-size: 0.91rem;
     }
     .checklist li:last-child { border-bottom: none; }
     .checklist li::before {
-      content: '○';
-      color: var(--gold);
-      font-size: 0.78rem;
+      content: '□';
+      color: var(--saffron);
+      font-size: 0.95rem;
       flex-shrink: 0;
-      margin-top: 0.28rem;
+      margin-top: 0.05rem;
     }
 
     /* ── BADGES ── */
     .badge {
       display: inline-block;
-      font-size: 0.64rem;
+      font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.15em 0.6em;
+      padding: 0.18em 0.65em;
       border-radius: 20px;
-      margin-left: 0.5rem;
+      margin-left: 0.4rem;
       vertical-align: middle;
       border: 1px solid currentColor;
     }
-    .badge          { color: var(--navy); border-color: #c8b890; }
-    .badge.gold     { color: #7a5a10; border-color: var(--gold); background: rgba(212,160,23,0.12); }
-    .badge.rose-b   { color: var(--rose); border-color: var(--rose); background: rgba(196,90,58,0.07); }
-    .badge.calum    { color: #2a5d72; border-color: #2a5d72; background: rgba(42,93,114,0.06); }
-    .badge.rose     { color: #96305a; border-color: #96305a; background: rgba(150,48,90,0.07); }
-    .badge.mamina   { color: #7c5cbf; border-color: #7c5cbf; background: rgba(124,92,191,0.06); }
-    .badge.jack     { color: #2a9d72; border-color: #2a9d72; background: rgba(42,157,114,0.06); }
+    .badge          { color: var(--carmin-dk); border-color: #c8b890; }
+    .badge.gold     { color: #876311; border-color: var(--saffron); background: rgba(224,160,34,0.14); }
+    .badge.calum    { color: #1f5673; border-color: #1f5673; background: rgba(31,86,115,0.07); }
+    .badge.rose     { color: #8e2855; border-color: #8e2855; background: rgba(142,40,85,0.08); }
+    .badge.mamina   { color: #6e4cb5; border-color: #6e4cb5; background: rgba(110,76,181,0.07); }
+    .badge.jack     { color: #28876a; border-color: #28876a; background: rgba(40,135,106,0.07); }
 
-    hr { border: none; border-top: 1px solid var(--border); margin: 1.4rem 0; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+    hr.ornate {
+      border: none;
+      text-align: center;
+      margin: 1.8rem 0;
+      height: 0.8rem;
+      position: relative;
+    }
+    hr.ornate::after {
+      content: '· ✦ ·';
+      color: var(--saffron);
+      letter-spacing: 0.5em;
+      font-size: 0.85rem;
+    }
 
     /* ── HOME PAGE ── */
-    .home-names {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1rem;
+    .home-eyebrow {
+      font-family: 'Fraunces', serif;
       font-style: italic;
+      font-size: 1.05rem;
+      color: var(--terracotta);
+      margin-bottom: 0.4rem;
+    }
+    .home-headline {
+      font-family: 'Fraunces', serif;
+      font-size: 2.7rem;
+      font-weight: 400;
+      color: var(--carmin-dk);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.8rem;
+    }
+    .home-headline em { color: var(--saffron); font-style: italic; font-weight: 400; }
+    .home-sub {
       color: var(--muted);
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.03em;
+      font-size: 1rem;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
     }
     .home-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 0.9rem;
-      margin-top: 1.8rem;
+      margin-top: 2rem;
     }
     .home-card {
-      background: var(--cream);
+      background: var(--paper);
       border: 1px solid var(--border);
       border-top: 3px solid var(--border);
-      border-radius: 3px;
-      padding: 1.2rem 1.4rem;
+      border-radius: 4px;
+      padding: 1.25rem 1.4rem 1.35rem;
       cursor: pointer;
-      transition: box-shadow 0.18s, transform 0.18s;
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
       text-decoration: none;
       color: inherit;
       display: block;
+      border-bottom: none;
     }
     .home-card:hover {
-      box-shadow: 0 6px 22px rgba(125,31,44,0.12);
-      transform: translateY(-2px);
-      text-decoration: none;
+      box-shadow: 0 10px 26px rgba(138,29,58,0.14);
+      transform: translateY(-3px);
+      border-color: var(--saffron);
+      color: inherit;
     }
-    .home-card.visa        { border-top-color: var(--gold); }
-    .home-card.jobs        { border-top-color: #2a9d72; }
-    .home-card.boards      { border-top-color: var(--navy); }
-    .home-card.practical   { border-top-color: #7c5cbf; }
-    .home-card.community   { border-top-color: var(--wine); }
-    .home-card.pets        { border-top-color: var(--rose); }
+    .home-card.visa     { border-top-color: var(--saffron); }
+    .home-card.live     { border-top-color: var(--terracotta); }
+    .home-card.jobs     { border-top-color: var(--olive); }
+    .home-card.boards   { border-top-color: var(--azulejo); }
+    .home-card.practical{ border-top-color: #7c5cbf; }
+    .home-card.community{ border-top-color: var(--carmin-dk); }
+    .home-card.pets     { border-top-color: var(--terracotta); }
     .home-card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: #d8c8a4;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--saffron);
       margin-bottom: 0.4rem;
       line-height: 1;
     }
     .home-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
       border: none;
       padding: 0;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
+      margin: 0 0 0.35rem;
+      font-weight: 500;
+      color: var(--carmin-dk);
     }
+    .home-card h3::before { content: none; }
     .home-card p {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--muted);
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* ── HOUSEHOLD PILLS ── */
     .household-pills {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
-      margin: 1rem 0 0.5rem;
+      margin: 1.3rem 0 0.4rem;
     }
     .pill {
-      background: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--paper);
       border: 1px solid var(--border);
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      letter-spacing: 0.04em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      color: var(--ink);
     }
-    .pill strong { color: var(--navy); }
+    .pill .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .pill.calum  .dot { background: #1f5673; }
+    .pill.rose   .dot { background: #8e2855; }
+    .pill.mamina .dot { background: #6e4cb5; }
+    .pill.jack   .dot { background: #28876a; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      main { padding: 2rem 1.8rem 4rem; }
-      .home-grid { grid-template-columns: 1fr 1fr; }
+    /* ── NEIGHBOURHOOD CARDS ── */
+    .hood-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin-top: 1rem;
     }
-    @media (max-width: 640px) {
-      .layout { flex-direction: column; }
-      nav.sidebar {
-        width: 100%; height: auto; position: static;
-        display: flex; flex-wrap: wrap; padding: 0.5rem; gap: 0.2rem;
-      }
-      .nav-label { display: none; }
-      nav.sidebar a {
-        border-left: none; border-bottom: 2px solid transparent;
-        padding: 0.4rem 0.7rem; border-radius: 2px; font-size: 0.75rem;
-      }
-      nav.sidebar a.active { border-bottom-color: var(--gold); }
-      main { padding: 1.5rem 1.2rem 3rem; }
+    .hood {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hood::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--saffron);
+    }
+    .hood.terr::before { background: var(--terracotta); }
+    .hood.azul::before { background: var(--azulejo); }
+    .hood.olive::before { background: var(--olive); }
+    .hood.carmin::before { background: var(--carmin); }
+    .hood-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+    .hood h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      color: var(--carmin-dk);
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .hood h4 em { color: var(--saffron); font-style: italic; font-weight: 400; }
+    .hood .hood-rent {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .hood .hood-tag {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--terracotta);
+      margin-bottom: 0.85rem;
+    }
+    .hood-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.6rem 1.4rem;
+      margin: 0.6rem 0 0.3rem;
+      font-size: 0.86rem;
+    }
+    .hood-facts .fact .k {
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.1rem;
+    }
+    .hood-facts .fact .v { color: var(--ink); }
+    .hood p.verdict {
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .hood-icons {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .ico {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(224,160,34,0.13);
+      color: #6d4c0d;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+    .ico.az { background: rgba(44,93,138,0.10); color: #1c4067; }
+    .ico.tc { background: rgba(194,90,58,0.12); color: #8a3a20; }
+    .ico.ol { background: rgba(122,134,84,0.16); color: #515a39; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.6rem 3.4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--paper);
+      text-align: center;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+    }
+    footer .accent { color: var(--carmin); }
+
+    @media (max-width: 900px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .header-meta { text-align: left; }
+      nav.sidebar { display: none; }
+      main { padding: 1.8rem 1.4rem 3rem; }
       .home-grid { grid-template-columns: 1fr; }
-      header { flex-wrap: wrap; gap: 0.8rem; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -356,872 +666,582 @@
 
 <header>
   <div class="header-title">
+    <div class="header-eyebrow">— ¡Bienvenidos a Madrid! —</div>
     <h1>Moving to <em>Madrid</em></h1>
-    <div class="header-subtitle">Rose &amp; Calum · Mamina &amp; Jack — research hub</div>
+    <div class="header-subtitle">Davey & Wotton · 2026</div>
   </div>
-  <div class="header-meta">Last updated<br>23 May 2026</div>
+  <div class="header-meta">
+    Research compiled May 2026<br>
+    Calum &middot; Rose &middot; Mamina &middot; Jack<br>
+    + 2 dogs · 1 baby
+  </div>
 </header>
 
 <div class="layout">
 
   <nav class="sidebar">
-    <div class="nav-label">Overview</div>
-    <a href="#" onclick="return show('home')" class="active" id="nav-home">Home</a>
-    <div class="nav-label">Headline focus</div>
-    <a href="#" onclick="return show('visa')"      id="nav-visa">Visas — Both Households</a>
-    <div class="nav-label">Work</div>
-    <a href="#" onclick="return show('jobs')"      id="nav-jobs">Job Market</a>
-    <a href="#" onclick="return show('boards')"    id="nav-boards">Job Boards</a>
-    <div class="nav-label">Living in Madrid</div>
-    <a href="#" onclick="return show('practical')" id="nav-practical">Practical Guide</a>
-    <a href="#" onclick="return show('pets')"      id="nav-pets">Pets &amp; Family</a>
-    <a href="#" onclick="return show('community')" id="nav-community">Community</a>
+    <div class="nav-label">Empezar aquí</div>
+    <a href="#home"      data-target="home"      class="active"><span class="num">01</span> Home</a>
+    <a href="#visas"     data-target="visas"><span class="num">02</span> Visas <span class="badge gold">★</span></a>
+    <a href="#live"      data-target="live"><span class="num">03</span> Where to live</a>
+
+    <div class="nav-label">Trabajo</div>
+    <a href="#jobs"      data-target="jobs"><span class="num">04</span> Job market</a>
+    <a href="#boards"    data-target="boards"><span class="num">05</span> Job boards</a>
+
+    <div class="nav-label">Vida cotidiana</div>
+    <a href="#practical" data-target="practical"><span class="num">06</span> Practical guide</a>
+    <a href="#family"    data-target="family"><span class="num">07</span> Pets & family</a>
+    <a href="#community" data-target="community"><span class="num">08</span> Community</a>
   </nav>
 
   <main>
 
-    <!-- ══ HOME ══ -->
+    <!-- ═══════════ HOME ═══════════ -->
     <section id="home" class="page-section active">
-      <div class="section-hero">
-        <p class="home-names">Rose &amp; Calum · Mamina &amp; Jack (+ son, ~1y) · two dogs</p>
-        <h2>Your move to Madrid, researched</h2>
-        <p>Two UK households moving to Madrid together. Different jobs, different visa routes, two dogs and one baby in tow. This hub maps out the visa options for each of you (the headline focus), the job market, and the practical reality of living in Madrid in 2026.</p>
-      </div>
+      <div class="home-eyebrow">— Una nueva vida —</div>
+      <div class="home-headline">Two households,<br>one new <em>capital</em>.</div>
+      <p class="home-sub">A practical playbook for the Davey & Wotton families moving from London to Madrid in 2026. Visa is the headline. Everything else flows from there.</p>
 
       <div class="household-pills">
-        <span class="pill"><strong>Calum</strong> · evaluation expert (education &amp; public health)</span>
-        <span class="pill"><strong>Rose</strong> · health data manager</span>
-        <span class="pill"><strong>Jack</strong> · private equity</span>
-        <span class="pill"><strong>Mamina</strong> · self-employed founder</span>
+        <div class="pill calum">  <span class="dot"></span>Calum · evaluation / public policy</div>
+        <div class="pill rose">   <span class="dot"></span>Rose · health data</div>
+        <div class="pill jack">   <span class="dot"></span>Jack · private equity</div>
+        <div class="pill mamina"> <span class="dot"></span>Mamina · self-employed founder</div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="v">€<em>40,077</em></div><div class="l">HQP visa min salary</div></div>
+        <div class="stat"><div class="v">€<em>2,849</em>/m</div><div class="l">Digital Nomad min</div></div>
+        <div class="stat"><div class="v"><em>24</em>%</div><div class="l">Beckham flat tax</div></div>
+        <div class="stat"><div class="v"><em>6</em> yrs</div><div class="l">Beckham eligibility</div></div>
       </div>
 
       <div class="home-grid">
-        <a class="home-card visa" href="#" onclick="return show('visa')">
-          <div class="home-card-num">01</div>
-          <h3>Visas — both households</h3>
-          <p>The headline section. HQP, DNV, Autónomo, EU Blue Card — and which route fits each of you.</p>
-        </a>
-        <a class="home-card jobs" href="#" onclick="return show('jobs')">
-          <div class="home-card-num">02</div>
-          <h3>Job Market</h3>
-          <p>PE firms for Jack · evaluation employers for Calum · health-data ecosystem for Rose · autónomo for Mamina.</p>
-        </a>
-        <a class="home-card boards" href="#" onclick="return show('boards')">
-          <div class="home-card-num">03</div>
-          <h3>Job Boards</h3>
-          <p>Where to look — broken down by person, with sample postings and recruiter contacts.</p>
-        </a>
-        <a class="home-card practical" href="#" onclick="return show('practical')">
-          <div class="home-card-num">04</div>
-          <h3>Practical Guide</h3>
-          <p>Rent, neighbourhoods, healthcare, banking, Spanish, Beckham Law, taxes — and a first-3-months checklist.</p>
-        </a>
-        <a class="home-card pets" href="#" onclick="return show('pets')">
-          <div class="home-card-num">05</div>
-          <h3>Pets &amp; Family</h3>
-          <p>Bringing two dogs from the UK; nurseries and British schools in Madrid for a 1-year-old.</p>
-        </a>
-        <a class="home-card community" href="#" onclick="return show('community')">
-          <div class="home-card-num">06</div>
-          <h3>Community</h3>
-          <p>British expat forums, in-person groups, parent networks, finance / evaluation / health professional bodies.</p>
-        </a>
+        <a class="home-card visa"      href="#visas"      data-target="visas"><div class="home-card-num">01</div><h3>Visas &amp; Residency</h3><p>HQP, DNV, Blue Card, Autónomo. The headline.</p></a>
+        <a class="home-card live"      href="#live"       data-target="live"><div class="home-card-num">02</div><h3>Where to live</h3><p>Plazas, playgrounds, terraces. Where young families thrive.</p></a>
+        <a class="home-card jobs"      href="#jobs"       data-target="jobs"><div class="home-card-num">03</div><h3>Job market</h3><p>PE, health data, evaluation, autónomo.</p></a>
+        <a class="home-card boards"    href="#boards"     data-target="boards"><div class="home-card-num">04</div><h3>Job boards</h3><p>Where to look — split by who.</p></a>
+        <a class="home-card practical" href="#practical"  data-target="practical"><div class="home-card-num">05</div><h3>Practical guide</h3><p>Costs, healthcare, banking, schools, tax.</p></a>
+        <a class="home-card pets"      href="#family"     data-target="family"><div class="home-card-num">06</div><h3>Pets &amp; family</h3><p>Two dogs from the UK. One baby. The logistics.</p></a>
+        <a class="home-card community" href="#community"  data-target="community"><div class="home-card-num">07</div><h3>Community</h3><p>Brits in Madrid. Mum groups. CFA. Evaluation.</p></a>
       </div>
 
-      <div class="card" style="margin-top:1.8rem">
-        <h3>Quick reference — Who applies for what</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Person</th><th>Most likely visa</th><th>Why</th></tr>
-            <tr><td><strong>Calum</strong> <span class="badge calum">Calum</span></td><td>HQP (technical, art. 71)</td><td>If hired by Spanish employer at €40k+ gross</td></tr>
-            <tr><td><strong>Rose</strong> <span class="badge rose">Rose</span></td><td>Accompany Calum / own HQP</td><td>Family route built into Calum's HQP; or own HQP if hired</td></tr>
-            <tr><td><strong>Jack</strong> <span class="badge jack">Jack</span></td><td>HQP (managerial) or EU Blue Card</td><td>PE salary easily clears €54k managerial / €60k Blue Card thresholds</td></tr>
-            <tr><td><strong>Mamina</strong> <span class="badge mamina">Mamina</span></td><td>Digital Nomad Visa</td><td>Self-employed, primarily non-Spanish clients</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Quick reference — key facts</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Topic</th><th>Key fact</th></tr>
-            <tr><td>Best work visa</td><td><strong>HQP (Highly Qualified Professional)</strong> — €40,077 gross/yr technical, €54,142 managerial; 3-year initial validity; Beckham Law eligible</td></tr>
-            <tr><td>Best self-employed visa</td><td><strong>Digital Nomad Visa</strong> — €2,849/month minimum income; remote work for non-Spanish clients; Beckham Law eligible</td></tr>
-            <tr><td>Family route</td><td>Spouse + children attached to primary applicant's visa under HQP and DNV</td></tr>
-            <tr><td>Top PE employers (Jack)</td><td>Alantra · CVC · Cinven · KKR · EQT · McKinsey PEPI · Bain Capital · Bridgepoint</td></tr>
-            <tr><td>Top evaluation employers (Calum)</td><td>UNWTO · AECID · ISCIII · OEI · Red2Red · FIIAPP</td></tr>
-            <tr><td>Top health-data employers (Rose)</td><td>IQVIA · ISCIII · MSD · AstraZeneca · Savana Médica</td></tr>
-            <tr><td>Rent — 3-bed central</td><td>€2,200–€3,500 (Salamanca, Chamberí, Retiro)</td></tr>
-            <tr><td>Spanish language</td><td>B1 strongly recommended; English-only fine at international PE / pharma; needed for Spanish employers</td></tr>
-            <tr><td>Beckham Law</td><td>24% flat rate up to €600k for 6 years — save €30k+/yr; apply within 6 months of SS registration</td></tr>
-            <tr><td>Dog import</td><td>Microchip · rabies vaccine · UK Animal Health Certificate within 10 days of travel · 8–12 weeks lead time</td></tr>
-            <tr><td>Child registration</td><td>Empadronamiento unlocks public nursery, school, healthcare</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <strong>Why visa is the headline:</strong> Because the four of you have very different employment statuses, the visa choice is the single biggest decision. Calum/Rose &amp; Jack go on employer-sponsored routes (HQP or Blue Card); Mamina goes via Digital Nomad Visa as a self-employed founder. See the Visas section for the per-person decision tree.
-      </div>
+      <hr class="ornate">
+      <p class="italic-flavor">Sources are linked under each section. Numbers refreshed May 2026.</p>
     </section>
 
-    <!-- ══ VISA ══ -->
-    <section id="visa" class="page-section">
+
+    <!-- ═══════════ VISAS ═══════════ -->
+    <section id="visas" class="page-section">
       <div class="section-hero">
-        <h2>Visas — Both Households <span class="badge gold">Headline focus</span></h2>
-        <p>Since Brexit, UK nationals need a long-stay visa to live and work in Spain. The right visa is different for each of you. This page walks through all six relevant routes, then recommends per person.</p>
+        <div class="section-eyebrow">— La cabecera —</div>
+        <h2>Visas &amp; <em>residency</em></h2>
+        <p class="lede">Six routes worth knowing. The right pick depends on whether you have a Spanish employer, freelance clients abroad, or capital. Below: the routes, the costs, and who should take which.</p>
+      </div>
+
+      <div class="info-box azul">
+        <strong>The shortcut:</strong> If you have a Spanish job offer above €40k → <strong>HQP</strong>. If you run a UK/global business from a laptop → <strong>DNV</strong>. Both unlock the <strong>Beckham Law 24% flat tax</strong>.
+      </div>
+
+      <div class="card accent">
+        <h3>The six routes — 2026</h3>
+        <div class="table-wrap"><table>
+          <tr><th>Route</th><th>Best for</th><th>Min income (2026)</th><th>Lead time</th></tr>
+          <tr><td><strong>HQP (Highly Qualified Professional)</strong></td><td>Salaried with Spanish employer</td><td>€40,077 technical / €54,142 managerial</td><td>4–8 weeks</td></tr>
+          <tr><td><strong>Digital Nomad Visa (DNV)</strong></td><td>Remote work for non-Spanish employers</td><td>€2,849/month + 20% per dependant</td><td>6–10 weeks</td></tr>
+          <tr><td><strong>EU Blue Card</strong></td><td>Senior salaried roles (alternative to HQP)</td><td>€44,000+ + degree or 5y experience</td><td>6–10 weeks</td></tr>
+          <tr><td><strong>Autónomo (self-employment)</strong></td><td>Freelance with Spanish clients</td><td>Business plan + viability</td><td>2–4 months</td></tr>
+          <tr><td><strong>Non-Lucrative (NLV)</strong></td><td>Capital, no work allowed</td><td>€28,800/yr + €7,200/dependant</td><td>2–3 months</td></tr>
+          <tr><td><strong>Job-Seeker</strong></td><td>Looking on arrival</td><td>Proof of funds + return ticket</td><td>1 month</td></tr>
+        </table></div>
+      </div>
+
+      <div class="card">
+        <h3>Per-person matrix</h3>
+        <ul class="clean">
+          <li><strong>Calum <span class="badge calum">CD</span></strong> — HQP via a Spanish employer (UNWTO, AECID-adjacent, consultancy). Fallback: DNV if remote-only contract.</li>
+          <li><strong>Rose <span class="badge rose">RH</span></strong> — HQP via IQVIA/MSD/AstraZeneca Madrid hub, or family-reunification on Calum's HQP.</li>
+          <li><strong>Jack <span class="badge jack">JW</span></strong> — HQP managerial (€54,142+) or EU Blue Card. PE roles comfortably clear both. Beckham almost certainly worth electing.</li>
+          <li><strong>Mamina <span class="badge mamina">MW</span></strong> — DNV if business income proves &gt;€2,849/m, else Autónomo. DNV is faster and keeps tax simpler.</li>
+        </ul>
+      </div>
+
+      <div class="card terr">
+        <h3>Beckham Law — the tax prize</h3>
+        <ul class="clean">
+          <li><strong>24% flat</strong> on Spanish-source employment income up to €600,000 (47% above)</li>
+          <li>Foreign income (outside Spain) <strong>not taxed</strong> in Spain during the regime</li>
+          <li><strong>6 years</strong> total (the move year + 5 following)</li>
+          <li>Apply within <strong>6 months</strong> of social security registration</li>
+          <li>2026 Startup Law update: includes <strong>DNV holders</strong> and <strong>dependants under 25</strong></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Documents — common pack</h3>
+        <ul class="clean">
+          <li>Passport (6m validity) + 2 photos</li>
+          <li><strong>ACRO criminal record check</strong> (UK) — apostilled + sworn-translated</li>
+          <li>Medical certificate (UK GP) — apostilled + translated</li>
+          <li>Proof of health insurance (DNV/NLV: no co-pays, no waiting periods)</li>
+          <li>Proof of income / contract / business activity</li>
+          <li>Apostilled marriage and birth certificates (for spouse + child applications)</li>
+        </ul>
+      </div>
+
+      <p class="italic-flavor">See <a href="visa-options.md">visa-options.md</a> for the full route-by-route breakdown.</p>
+    </section>
+
+
+    <!-- ═══════════ WHERE TO LIVE (NEW) ═══════════ -->
+    <section id="live" class="page-section">
+      <div class="section-hero">
+        <div class="section-eyebrow">— Vivir en Madrid —</div>
+        <h2>Where to <em>live</em></h2>
+        <p class="lede">For young families in their 30s and 40s with one or two small children: walkable, plaza-anchored neighbourhoods where the playground, the panadería and the wine bar are all within five minutes. These are the five that consistently come up.</p>
       </div>
 
       <div class="info-box">
-        <strong>The two-route picture:</strong> Three of you (Calum, Rose, Jack) most likely go via the <strong>Highly Qualified Professional (HQP)</strong> visa once you have a Spanish job offer. Mamina, as a self-employed founder, goes via the <strong>Digital Nomad Visa (DNV)</strong>. Both routes attach spouses and children automatically and both unlock the Beckham Law 24% flat-rate tax.
+        <strong>The Madrid pattern</strong> — Madrid is built around <em>plazas</em>. The good ones have a playground in the middle, mature trees, café terraces on the perimeter, and a kiosk selling olives and beer. Pick your plaza first; the flat follows.
       </div>
 
-      <div class="card">
-        <h3>Route 1 — Highly Qualified Professional (HQP) <span class="badge gold">Calum · Rose · Jack</span></h3>
-        <p>Spain's flagship route for skilled employees with a Spanish job offer. Closest equivalent of France's Talent Passport. The <strong>employer files</strong> the application with UGE-CE, then the visa is collected at the consulate.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Requirement</th><th>Detail</th></tr>
-            <tr><td>Qualification</td><td>Degree, postgrad, or 3+ years' relevant experience</td></tr>
-            <tr><td>Salary threshold — technical / scientific (art. 71)</td><td><strong>€40,077/yr gross</strong></td></tr>
-            <tr><td>Salary threshold — managerial / executive</td><td><strong>€54,142/yr gross</strong></td></tr>
-            <tr><td>Salary threshold — under 30</td><td>€30,500/yr gross</td></tr>
-            <tr><td>Processing</td><td>~20 business days (UGE-CE) + ~10 working days (consulate)</td></tr>
-            <tr><td>Initial validity</td><td><strong>3 years</strong>, then renewable</td></tr>
-            <tr><td>Family route</td><td>Spouse + children attached as accompanying family from day one</td></tr>
-            <tr><td>Tax benefit</td><td>Beckham Law eligible — 24% flat-rate income tax up to €600k for 6 years</td></tr>
-          </table>
+      <div class="hood-grid">
+
+        <div class="hood">
+          <div class="hood-head">
+            <h4>Chamberí <em>· the obvious winner</em></h4>
+            <div class="hood-rent">€1,400–€2,200 · 2-bed</div>
+          </div>
+          <div class="hood-tag">elegant, leafy, full of buggies and Riojas</div>
+          <div class="hood-facts">
+            <div class="fact"><div class="k">Anchor plaza</div><div class="v">Plaza de Olavide</div></div>
+            <div class="fact"><div class="k">Playground</div><div class="v">In the middle of Olavide + Pl. de Chamberí</div></div>
+            <div class="fact"><div class="k">Eat &amp; drink</div><div class="v">Sala de Despiece · Tripea · Lakasa · the Olavide terraces</div></div>
+            <div class="fact"><div class="k">Park</div><div class="v">5 min to Parque de Santander &amp; Canal de Isabel II</div></div>
+          </div>
+          <div class="hood-icons"><span class="ico">★ plaza-life</span><span class="ico tc">family-density</span><span class="ico az">metro 6, 7, 10</span></div>
+          <p class="verdict">The default recommendation for both households. Sub-areas worth knowing: <strong>Trafalgar</strong> (around Olavide — best for families), <strong>Almagro</strong> (more refined, embassy-leafy), <strong>Arapiles</strong> (cheaper, livelier).</p>
         </div>
-        <h4>Step-by-step</h4>
-        <ol>
-          <li>Secure a job offer at or above the relevant salary threshold</li>
-          <li>Employer files HQP application with UGE-CE (Spain's central immigration unit)</li>
-          <li>UGE-CE issues authorisation (~20 business days)</li>
-          <li>You apply for the visa stamp at the Spanish consulate (BLS Spain in London / Manchester / Edinburgh) — ~10 working days</li>
-          <li>Travel to Spain within 90 days</li>
-          <li>Register at the town hall (empadronamiento)</li>
-          <li>Apply for TIE (residence card) at the police station within 30 days; biometrics taken; card arrives 3–4 weeks later</li>
-          <li>Family members apply alongside; one combined file</li>
-        </ol>
+
+        <div class="hood terr">
+          <div class="hood-head">
+            <h4>La Latina <em>· tapas + Plaza de la Paja</em></h4>
+            <div class="hood-rent">€1,200–€1,900 · 2-bed</div>
+          </div>
+          <div class="hood-tag">medieval streets, the prettiest plaza in Madrid</div>
+          <div class="hood-facts">
+            <div class="fact"><div class="k">Anchor plaza</div><div class="v">Plaza de la Paja</div></div>
+            <div class="fact"><div class="k">Playground</div><div class="v">Pl. del Humilladero + Jardín del Príncipe Anglona</div></div>
+            <div class="fact"><div class="k">Eat &amp; drink</div><div class="v">Cava Baja street · Casa Lucio · El Viajero · vermouth on Sundays</div></div>
+            <div class="fact"><div class="k">Park</div><div class="v">10 min to Madrid Río (vast riverside playground belt)</div></div>
+          </div>
+          <div class="hood-icons"><span class="ico">★ plaza-life</span><span class="ico tc">food-paradise</span><span class="ico az">metro 5</span></div>
+          <p class="verdict">Cheaper than Chamberí, more soul. Loud on weekend nights — fine with toddlers, less great with a light-sleeping baby on the main streets. Pick a side-street flat.</p>
+        </div>
+
+        <div class="hood azul">
+          <div class="hood-head">
+            <h4>Retiro / Ibiza <em>· the park is your garden</em></h4>
+            <div class="hood-rent">€1,500–€2,400 · 2-bed</div>
+          </div>
+          <div class="hood-tag">the green lung of Madrid · families everywhere</div>
+          <div class="hood-facts">
+            <div class="fact"><div class="k">Anchor plaza</div><div class="v">Plaza de Ibiza</div></div>
+            <div class="fact"><div class="k">Playground</div><div class="v">Retiro park · 4+ playgrounds &amp; a rowing lake</div></div>
+            <div class="fact"><div class="k">Eat &amp; drink</div><div class="v">Calle Ibiza terraces · Taberna Pedraza · Florida Park</div></div>
+            <div class="fact"><div class="k">Park</div><div class="v">El Retiro — 125 hectares on your doorstep</div></div>
+          </div>
+          <div class="hood-icons"><span class="ico">★ plaza-life</span><span class="ico ol">green-lung</span><span class="ico az">metro 9, line 1</span></div>
+          <p class="verdict">If having a giant park as your back garden matters, this wins. Quieter and more residential than Chamberí; high family density; walkable to Salamanca for the international schools.</p>
+        </div>
+
+        <div class="hood olive">
+          <div class="hood-head">
+            <h4>Conde Duque / Argüelles <em>· cool, calm, cultural</em></h4>
+            <div class="hood-rent">€1,300–€1,900 · 2-bed</div>
+          </div>
+          <div class="hood-tag">Malasaña's grown-up sibling</div>
+          <div class="hood-facts">
+            <div class="fact"><div class="k">Anchor plaza</div><div class="v">Plaza de las Comendadoras</div></div>
+            <div class="fact"><div class="k">Playground</div><div class="v">Comendadoras + Parque del Oeste</div></div>
+            <div class="fact"><div class="k">Eat &amp; drink</div><div class="v">Cafés around Conde Duque cultural centre · Federal Café · Pez Tortilla</div></div>
+            <div class="fact"><div class="k">Park</div><div class="v">Parque del Oeste &amp; Templo de Debod (sunsets)</div></div>
+          </div>
+          <div class="hood-icons"><span class="ico">★ plaza-life</span><span class="ico ol">cultural-belt</span><span class="ico az">metro 3, 6</span></div>
+          <p class="verdict">Quieter than Malasaña but with the same independent-café energy. Great for working-from-home parents — coffee shops with laptops are everywhere. Lower family density than Chamberí.</p>
+        </div>
+
+        <div class="hood carmin">
+          <div class="hood-head">
+            <h4>Salamanca <em>· premium, polished</em></h4>
+            <div class="hood-rent">€2,000–€3,500 · 2-bed</div>
+          </div>
+          <div class="hood-tag">grid-planned, designer-shop-lined, school-adjacent</div>
+          <div class="hood-facts">
+            <div class="fact"><div class="k">Anchor plaza</div><div class="v">Plaza del Marqués de Salamanca</div></div>
+            <div class="fact"><div class="k">Playground</div><div class="v">Marqués + Jardines del Descubrimiento (Colón)</div></div>
+            <div class="fact"><div class="k">Eat &amp; drink</div><div class="v">Platea · StreetXO · Ten con Ten · countless terraces</div></div>
+            <div class="fact"><div class="k">Park</div><div class="v">5–10 min to Retiro from the southern grid</div></div>
+          </div>
+          <div class="hood-icons"><span class="ico">★ plaza-life</span><span class="ico tc">premium</span><span class="ico az">metro 4, 9, 5</span></div>
+          <p class="verdict">The Marylebone of Madrid. Quieter than Chamberí, more expensive, less character — but closest to British Council School &amp; Hastings shuttles. Worth it for households prioritising schools and walk-to-everything elegance.</p>
+        </div>
+
       </div>
 
-      <div class="card">
-        <h3>Route 2 — Digital Nomad Visa (DNV) <span class="badge mamina">Mamina</span></h3>
-        <p>Launched in 2023 under Spain's Startup Law. For non-EU citizens working remotely — either as employees of a non-Spanish company or self-employed serving clients abroad. <strong>Spain-based client work must not exceed 20%</strong> of total professional activity.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Requirement</th><th>Detail</th></tr>
-            <tr><td>Income — primary applicant</td><td><strong>€2,849/month gross (€34,188/yr)</strong> — 200% of SMI</td></tr>
-            <tr><td>Income — first family member</td><td>+75% of SMI (~€1,068/month)</td></tr>
-            <tr><td>Income — additional dependents</td><td>+25% of SMI each (~€356/month)</td></tr>
-            <tr><td>Qualification</td><td>Degree OR 3+ years' relevant experience</td></tr>
-            <tr><td>Business history</td><td>Employer or business must have existed for at least 1 year</td></tr>
-            <tr><td>UK NI</td><td>Either keep paying UK NI via <strong>CA3837 certificate</strong> from HMRC, OR register with Spanish social security (RETA)</td></tr>
-            <tr><td>Initial visa</td><td>1 year → 3-year TIE on arrival in Spain → renewable for further 2 years</td></tr>
-            <tr><td>Tax benefit</td><td>Beckham Law eligible — 24% flat rate; 6 years</td></tr>
-          </table>
-        </div>
-        <div class="info-box rose-tint">
-          <strong>For Mamina specifically:</strong> The DNV is almost certainly the right route. It preserves the UK Limited Co structure, keeps the option of UK NI continuity via CA3837, and unlocks Beckham Law. The only catch is the 20% cap on Spanish-source revenue — if Mamina's business is going to pivot toward Spanish clients post-move, the Autónomo Visa (Route 4) becomes the better fit.
-        </div>
-      </div>
+      <hr class="ornate">
 
-      <div class="card">
-        <h3>Route 3 — EU Blue Card <span class="badge jack">Jack (senior)</span></h3>
-        <p>For highly-skilled workers earning above a higher threshold. The key benefit is <strong>intra-EU mobility</strong> after 18 months — useful for a PE professional who may want to rotate between Madrid, Frankfurt and London.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Requirement</th><th>Detail</th></tr>
-            <tr><td>Salary threshold</td><td>~1.5× average Spanish gross salary (~€55,000–€60,000/yr; updated annually)</td></tr>
-            <tr><td>Qualification</td><td>Degree of 3+ years' study OR 5+ years' senior experience</td></tr>
-            <tr><td>Duration</td><td>1–4 years, renewable</td></tr>
-            <tr><td>Key benefit</td><td>Intra-EU mobility after 18 months</td></tr>
-          </table>
-        </div>
-        <p>For a PE associate in their late 20s / early 30s, the HQP route is usually easier; for a VP / Principal-level PE role, the Blue Card unlocks better mobility — worth discussing with Jack's prospective firm.</p>
-      </div>
-
-      <div class="card">
-        <h3>Route 4 — Self-Employed (Autónomo) Visa <span class="badge mamina">Mamina (alt)</span></h3>
-        <p>For Mamina if her business is, or will become, primarily Spain-based. Requires a vetted business plan and a separate operational set-up in Spain.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Requirement</th><th>Detail</th></tr>
-            <tr><td>Business plan</td><td>Must be approved and stamped by an autónomo association (UPTA, ATA or UATAE)</td></tr>
-            <tr><td>Personal funds</td><td>≥100% of IPREM (~€7,200/yr)</td></tr>
-            <tr><td>Business capital</td><td>Sufficient to cover year-1 operations per business plan</td></tr>
-            <tr><td>Initial validity</td><td>1 year, then renewable</td></tr>
-            <tr><td>Spanish social security</td><td>RETA — €80/month for year 1 (tarifa plana), then ~€300/month</td></tr>
-          </table>
-        </div>
-        <p>The Autónomo route is slower than the DNV because of the business-plan vetting — but it gives more flexibility on Spanish-sourced revenue (no 20% cap).</p>
-      </div>
-
-      <div class="card">
-        <h3>Route 5 — Non-Lucrative Visa (NLV)</h3>
-        <p>For those who can support themselves <strong>without working in Spain</strong>. Mostly used by retirees; usable as a backup for an accompanying partner not yet ready to apply on their own.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Requirement</th><th>Detail</th></tr>
-            <tr><td>Income / capital — primary</td><td><strong>€28,800/yr</strong></td></tr>
-            <tr><td>Per dependent</td><td>+€7,200/yr</td></tr>
-            <tr><td>Family of 3</td><td>~€43,200/yr</td></tr>
-            <tr><td>Health insurance</td><td>Comprehensive private cover required</td></tr>
-            <tr><td>Initial validity</td><td>1 year → 2-year renewals</td></tr>
-          </table>
-        </div>
-        <div class="info-box warn">
-          <strong>Important:</strong> You cannot work in Spain on an NLV. This means it's not viable for Calum, Rose, Jack or Mamina (if her business needs to keep trading). It's only useful as a fallback for an accompanying spouse who hasn't yet secured their own work visa.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Route 6 — Job-Seeker Visa</h3>
-        <p>Spain offers a 12-month visa for non-EU citizens looking to find work or set up a business. No job offer required at application. Backup route if any of you want to relocate before securing a contract.</p>
-      </div>
-
-      <div class="card">
-        <h3>Per-person recommendation</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Person</th><th>Primary route</th><th>Backup</th></tr>
-            <tr><td><strong>Calum</strong></td><td>HQP (technical) — if hired by Spanish employer</td><td>DNV (if continuing UK/NIoT remote work); or accompany Rose on her HQP</td></tr>
-            <tr><td><strong>Rose</strong></td><td>Accompany Calum on his HQP (family route)</td><td>Own HQP if hired into Spanish pharma/data role; or DNV</td></tr>
-            <tr><td><strong>Jack</strong></td><td>HQP (managerial) via Madrid PE firm</td><td>EU Blue Card if seniority justifies it</td></tr>
-            <tr><td><strong>Mamina</strong></td><td>Digital Nomad Visa (remote self-employment)</td><td>Autónomo Visa if business pivots to Spain</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Beckham Law — relevant to all four</h3>
-        <p>Spain's Special Expats' Tax Regime (Beckham Law) lets qualifying new residents pay <strong>24% flat-rate tax on Spanish-source employment income up to €600,000</strong> for 6 years — instead of progressive rates up to 47%.</p>
-        <div class="info-box">
-          <strong>Key updates for 2026 (Startup Law refinements):</strong>
-          <ul style="margin-top:0.4rem">
-            <li>Digital Nomad Visa holders are now officially eligible</li>
-            <li>Spouse and children under 25 can be included from 2026</li>
-            <li>You must not have been Spanish tax-resident in the previous 5 years</li>
-            <li>Apply within <strong>6 months</strong> of Spanish social security registration</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Cost summary (per adult)</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Cost</th><th>HQP</th><th>DNV</th><th>Autónomo</th><th>NLV</th></tr>
-            <tr><td>Visa fee (BLS Spain)</td><td>~£516</td><td>~£516</td><td>~£516</td><td>~£516</td></tr>
-            <tr><td>ACRO criminal cert + apostille</td><td>~£110</td><td>~£110</td><td>~£110</td><td>~£110</td></tr>
-            <tr><td>Sworn Spanish translations</td><td>~£90/doc × 4–6</td><td>~£90/doc × 4–6</td><td>~£90/doc × 5–7</td><td>~£90/doc × 4–6</td></tr>
-            <tr><td>Medical certificate</td><td>~£80</td><td>~£80</td><td>~£80</td><td>~£80</td></tr>
-            <tr><td>TIE card fee (in Spain)</td><td>~€16</td><td>~€16</td><td>~€16</td><td>~€16</td></tr>
-            <tr><td>Private health insurance</td><td>Not needed if employer covers</td><td>Required (~€60/m)</td><td>Required</td><td>Required</td></tr>
-            <tr><td><strong>Approximate total</strong></td><td><strong>£900–£1,200</strong></td><td><strong>£900–£1,400</strong></td><td><strong>£1,100–£1,500</strong></td><td><strong>£900–£1,200</strong></td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Children — Mamina &amp; Jack's son</h3>
-        <p>The HQP, DNV and Autónomo visas all allow children to be attached as accompanying family members from day one. For a child under one:</p>
-        <ul>
-          <li>Apply at the same time as the parents (one combined application)</li>
-          <li>Include the child's full UK birth certificate (apostilled and sworn-translated)</li>
-          <li>Comprehensive private health insurance covering the child</li>
-          <li>After arrival in Madrid, register the child on the empadronamiento with both parents</li>
-          <li>Children under 7 ride Madrid public transport free</li>
+      <div class="card accent">
+        <h3>The quick verdict by household</h3>
+        <ul class="clean">
+          <li><strong>Calum &amp; Rose <span class="badge calum">CD</span><span class="badge rose">RH</span></strong> — <strong>Chamberí</strong> (Trafalgar around Olavide) or <strong>La Latina</strong> for more soul.</li>
+          <li><strong>Mamina &amp; Jack <span class="badge jack">JW</span><span class="badge mamina">MW</span></strong> — <strong>Chamberí</strong> (Almagro for elegance) or <strong>Retiro/Ibiza</strong> for the park-as-garden play; <strong>Salamanca</strong> if schools take precedence.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h3>Key resources</h3>
-        <ul>
-          <li><a href="https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Visado-para-trabajador-altamente-cualificado-y-para-traslado-intraempresarial.aspx" target="_blank">Spanish Consulate London — HQP visa</a></li>
-          <li><a href="https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx" target="_blank">Spanish Consulate London — Digital Nomad Visa</a></li>
-          <li><a href="https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Visado-de-trabajo-por-cuenta-propia.aspx" target="_blank">Spanish Consulate London — Self-employed visa</a></li>
-          <li><a href="https://uk.blsspainvisa.com/" target="_blank">BLS Spain — UK biometrics centres</a></li>
-          <li><a href="https://home-affairs.ec.europa.eu/policies/migration-and-asylum/eu-immigration-portal/highly-qualified-worker-spain_en" target="_blank">EU Immigration Portal — Highly-qualified worker Spain</a></li>
-          <li><a href="https://www.gov.uk/guidance/living-in-spain" target="_blank">GOV.UK — Living in Spain</a></li>
-          <li><a href="https://jurospain.com/guides/beckham-law-spain-2026-guide/" target="_blank">JURO Spain — Beckham Law 2026 Guide</a></li>
-          <li><a href="https://delcantochambers.com/digital-nomad-visa-spain-2026-guide/" target="_blank">Del Canto Chambers — DNV 2026 UK Guide</a></li>
+        <h3>Avoid (for this profile)</h3>
+        <ul class="clean">
+          <li><strong>Gran Vía / Sol</strong> — tourist throughfare, noisy, no plazas worth their name.</li>
+          <li><strong>Malasaña core</strong> — fun, but late-night noise &amp; few playgrounds. Better as a destination than an address.</li>
+          <li><strong>Far suburbs (Las Rozas, Tres Cantos)</strong> — fine if a specific school dictates it; otherwise you lose the very thing you came for.</li>
         </ul>
+      </div>
+
+      <div class="info-box olive">
+        <strong>Rental reality check</strong> — Rents up ~11% YoY into 2026. Landlords typically ask for 2–3 months deposit plus a Spanish guarantor (avalista). Workarounds: <strong>Avalbox</strong> / <strong>Avaloop</strong> rental guarantees · 6 months rent up-front · or start with a furnished 6-month rental via <a href="https://www.spotahome.com/">Spotahome</a> while you find your feet.
       </div>
     </section>
 
-    <!-- ══ JOB MARKET ══ -->
+
+    <!-- ═══════════ JOB MARKET ═══════════ -->
     <section id="jobs" class="page-section">
       <div class="section-hero">
-        <h2>Job Market in Madrid</h2>
-        <p>Madrid is one of Europe's fastest-growing professional hubs and the financial capital of southern Europe. Different ecosystems for each of you.</p>
+        <div class="section-eyebrow">— El mercado laboral —</div>
+        <h2>Job <em>market</em></h2>
+        <p class="lede">Four people, four different sectors. Each is well-served in Madrid; the routes in are different.</p>
       </div>
 
       <div class="card">
-        <h3>For Jack — Private Equity &amp; Finance <span class="badge jack">Jack</span></h3>
-        <p>Madrid's PE sector has grown substantially since 2020. ~139 PE roles open at any time on Glassdoor; 214+ on LinkedIn.</p>
-        <h4>Top PE firms with Madrid presence</h4>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Firm</th><th>Type</th></tr>
-            <tr><td><strong>Alantra</strong></td><td>Independent global IB &amp; asset management; Spanish HQ; 500+ professionals</td></tr>
-            <tr><td><strong>CVC Capital Partners</strong></td><td>Mega-fund PE; Iberia coverage</td></tr>
-            <tr><td><strong>Cinven</strong></td><td>Pan-European PE</td></tr>
-            <tr><td><strong>KKR</strong></td><td>Mega-fund PE</td></tr>
-            <tr><td><strong>Apollo Global Management</strong></td><td>PE / credit</td></tr>
-            <tr><td><strong>EQT Partners</strong></td><td>Pan-European PE</td></tr>
-            <tr><td><strong>Bain Capital</strong></td><td>Mega-fund PE</td></tr>
-            <tr><td><strong>Bridgepoint</strong></td><td>Mid-market PE</td></tr>
-            <tr><td><strong>Magnum Capital · Portobello Capital · ProA Capital · MCH · GED</strong></td><td>Spanish/Iberian PE houses</td></tr>
-            <tr><td><strong>Blackstone Real Estate · Brookfield</strong></td><td>Real estate / infra PE</td></tr>
-            <tr><td><strong>McKinsey PEPI / BCG / Bain</strong></td><td>Strategy-consulting PE practices</td></tr>
-            <tr><td><strong>PwC / Deloitte / EY / KPMG</strong></td><td>Deal-advisory teams</td></tr>
-          </table>
-        </div>
-        <h4>Salary benchmarks (2026)</h4>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Level</th><th>Base</th><th>Bonus</th></tr>
-            <tr><td>Analyst (0–2y)</td><td>€55–75k</td><td>20–40%</td></tr>
-            <tr><td>Associate (2–5y)</td><td>€90–140k</td><td>50–80%</td></tr>
-            <tr><td>Senior Associate / VP</td><td>€150–220k</td><td>80–120%</td></tr>
-            <tr><td>Principal / Director</td><td>€250k+</td><td>100–200% + carry</td></tr>
-            <tr><td>Partner / MD</td><td>€400k+ + carry</td><td>—</td></tr>
-          </table>
-        </div>
-        <p>International firms typically pay 20–30% above local Spanish firms at the analyst/associate level. Carry kicks in at VP+. Beckham Law caps tax at 24% — making Madrid net pay competitive with London for senior PE.</p>
+        <h3>Private equity <span class="badge jack">Jack</span></h3>
+        <p>Madrid is Iberia's PE capital. Most international funds run their Iberian deal teams from here.</p>
+        <ul class="clean">
+          <li><strong>Internationals:</strong> CVC, KKR, Cinven, EQT, Apollo, Bain Capital, Bridgepoint, Carlyle</li>
+          <li><strong>Spanish funds:</strong> Alantra, Magnum, Portobello, ProA, MCH, GED, Nazca, Suma Capital</li>
+          <li><strong>Adjacent:</strong> McKinsey PEPI, BCG, Bain consulting; Big Four transaction services</li>
+          <li><strong>Comp:</strong> VP €120–€180k base + 50–100% bonus + carry; Principal €180–€280k + carry</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>For Calum — Evaluation, International Development &amp; Policy <span class="badge calum">Calum</span></h3>
-        <h4>International / multilateral employers in Madrid</h4>
-        <ul>
-          <li><strong>UNWTO — World Tourism Organization</strong> · UN specialised agency, full HQ in Madrid (Poeta Joan Maragall 42, 28020). Statistical and evaluation roles.</li>
-          <li><strong>UN System Staff College — Madrid hub</strong> · Training and learning coordination.</li>
-          <li><strong>OEI — Organización de Estados Iberoamericanos</strong> · HQ in Madrid; education / science / culture cooperation across the Iberoamerican region.</li>
-          <li><strong>UNICEF Spain</strong> · National committee; mostly fundraising and advocacy.</li>
+        <h3>Health data &amp; pharma <span class="badge rose">Rose</span></h3>
+        <ul class="clean">
+          <li><strong>Industry hubs:</strong> IQVIA Iberia, MSD, AstraZeneca, GSK Spain, Pfizer, Roche</li>
+          <li><strong>Spanish health-tech:</strong> Savana Médica, Quibim, Mediktor, Methinks</li>
+          <li><strong>Public/academic:</strong> ISCIII (Carlos III Health Institute), IS Global, CNIC</li>
+          <li><strong>Comp:</strong> Senior epidemiologist / data scientist €55–€90k; principal €90–€140k</li>
         </ul>
-        <h4>Spanish national bodies</h4>
-        <ul>
-          <li><strong>AECID — Agencia Española de Cooperación Internacional</strong> · Spain's bilateral development agency. Significant evaluation team. Spanish B2/C1 typically required.</li>
-          <li><strong>FIIAPP — Fundación Internacional y para Iberoamérica</strong> · Manages EU twinning and TAIEX projects.</li>
-          <li><strong>CEPC — Centro de Estudios Políticos y Constitucionales</strong> · Policy research.</li>
-        </ul>
-        <h4>Research / academic</h4>
-        <ul>
-          <li><strong>ISCIII — Instituto de Salud Carlos III</strong> · National public health research institute. Direct relevance for Calum's public health evaluation work.</li>
-          <li><strong>Universidad Autónoma de Madrid (UAM) · Universidad Carlos III</strong> · Both have applied microeconomics / impact-evaluation research groups (J-PAL Spain affiliates).</li>
-        </ul>
-        <h4>Public-policy / evaluation consultancies</h4>
-        <ul>
-          <li><strong>Red2Red</strong> · Spanish leader in public policy evaluation</li>
-          <li><strong>Tragsatec</strong> · Engineering + policy evaluation</li>
-          <li><strong>Big 4 (KPMG, Deloitte, EY, PwC) public-sector teams</strong> · EU and World Bank impact-evaluation contracts</li>
-          <li><strong>EPYPSA · GOPA</strong> · International development consultancies with Madrid operations</li>
-        </ul>
-        <div class="info-box">
-          <strong>Salary benchmarks:</strong> Junior M&amp;E €25–35k · M&amp;E officer €35–50k · Senior evaluator €50–75k · UN P3 ~€60–75k net (tax-exempt) · UN P4 €80–100k net.
-        </div>
       </div>
 
       <div class="card">
-        <h3>For Rose — Health Data &amp; Research <span class="badge rose">Rose</span></h3>
-        <h4>Public sector &amp; research</h4>
-        <ul>
-          <li><strong>ISCIII</strong> — National epidemiology and public health data systems; Data Science Department; English-tolerant</li>
-          <li><strong>AEMPS</strong> — Spanish drug agency; pharmacovigilance and real-world evidence</li>
-          <li><strong>SERMAS</strong> — Madrid regional health authority. Big hospitals (La Paz, 12 de Octubre, Ramón y Cajal, Clínico San Carlos, Gregorio Marañón) all have data science teams.</li>
-          <li><strong>IRYCIS · FISABIO</strong> — Health research foundations within SERMAS</li>
+        <h3>Evaluation &amp; public policy <span class="badge calum">Calum</span></h3>
+        <ul class="clean">
+          <li><strong>Multilaterals:</strong> UNWTO (HQ in Madrid), AECID, OEI, FIIAPP</li>
+          <li><strong>Consultancies:</strong> Red2Red, Inforegio, Technopolis Iberia</li>
+          <li><strong>Adjacent:</strong> ISCIII (for health-evaluation), Elcano, Esade Geo</li>
+          <li>Spanish B2+ matters here; English-only roles exist at UNWTO and international NGOs</li>
         </ul>
-        <h4>Pharma &amp; life sciences</h4>
-        <ul>
-          <li><strong>IQVIA Spain</strong> — Real-world evidence team in Madrid; English-friendly</li>
-          <li><strong>MSD Spain</strong> · <strong>AstraZeneca Spain</strong> · <strong>GSK Spain (Tres Cantos)</strong> · <strong>Bayer · Lilly · Roche · Novartis</strong></li>
-          <li><strong>Cegedim</strong> · health analytics</li>
-        </ul>
-        <h4>Health-tech &amp; start-ups</h4>
-        <ul>
-          <li><strong>Savana Médica</strong> — Clinical NLP &amp; real-world data</li>
-          <li><strong>Quibim</strong> — AI for medical imaging</li>
-          <li><strong>Idoven</strong> — Cardiology AI</li>
-          <li><strong>MediQuo / Doctoralia</strong> — Telehealth analytics</li>
-        </ul>
-        <div class="info-box">
-          <strong>Salary benchmarks:</strong> Data Manager junior €30–42k · Senior Data Manager €45–65k · RWE Lead €60–85k · Director of Data Science €85–130k.
-        </div>
       </div>
 
       <div class="card">
-        <h3>For Mamina — Self-Employment / Consultancy <span class="badge mamina">Mamina</span></h3>
-        <p>The strategic choice is whether to keep the UK Limited Co structure or set up as autónomo in Spain.</p>
-        <h4>Option A — Keep UK Ltd Co, work remotely (DNV route)</h4>
-        <ul>
-          <li>Continue invoicing UK and international clients</li>
-          <li>UK corporation tax + UK personal tax via dividend/salary</li>
-          <li>CA3837 to remain in UK NI</li>
-          <li>Beckham Law for any Spanish-source income</li>
+        <h3>Self-employed / founder <span class="badge mamina">Mamina</span></h3>
+        <ul class="clean">
+          <li><strong>Status:</strong> Autónomo (RETA) or DNV — DNV preferred if income &gt;€2,849/m and clients abroad</li>
+          <li><strong>Communities:</strong> Impact Hub Madrid, Utopicus, La Industrial, Madrid Female Founders</li>
+          <li><strong>Year-1 perk:</strong> Autónomo "tarifa plana" — €80/m social security for 12 months</li>
+          <li><strong>Tax:</strong> Quarterly IVA (303) + IRPF (130); annual return June</li>
         </ul>
-        <h4>Option B — Spanish autónomo</h4>
-        <ul>
-          <li>Modelo 036/037 registration with Hacienda</li>
-          <li>RETA social security (~€80/m year 1, ~€300/m thereafter)</li>
-          <li>Quarterly VAT (Modelo 303) + quarterly personal income tax (Modelo 130/131)</li>
-        </ul>
-        <h4>Madrid co-working hubs</h4>
-        <p>Impact Hub Madrid · Utopicus · Spaces · WeWork · La Industrial · Talent Garden Madrid. Hot-desk €180–€300/m; dedicated €300–€500/m.</p>
-        <p><a href="https://www.ata.es/" target="_blank">ATA — Federación de Autónomos →</a> &nbsp;|&nbsp; <a href="https://www.upta.es/" target="_blank">UPTA →</a> &nbsp;|&nbsp; <a href="https://www.malt.com/" target="_blank">Malt freelance platform →</a></p>
       </div>
 
-      <div class="card">
-        <h3>Beckham Law — the tax kicker</h3>
-        <p>Available on HQP, DNV and many other professional visas. <strong>24% flat rate</strong> on Spanish employment income up to €600k for 6 years. From 2026 (Startup Law refinements), DNV holders are explicitly eligible, and spouses and children under 25 can be included. Must apply within 6 months of Spanish social security registration.</p>
-        <p>For Jack at PE-associate level (€150k+ base + bonus): the saving over standard Spanish bands is ~€30k+/yr.</p>
-      </div>
+      <p class="italic-flavor">Full sector breakdown: <a href="job-market.md">job-market.md</a>.</p>
     </section>
 
-    <!-- ══ JOB BOARDS ══ -->
+
+    <!-- ═══════════ JOB BOARDS ═══════════ -->
     <section id="boards" class="page-section">
       <div class="section-hero">
-        <h2>Job Boards</h2>
-        <p>Where to look. Split by audience: PE for Jack · evaluation for Calum · health data for Rose · freelance for Mamina · plus generalist boards.</p>
+        <div class="section-eyebrow">— Dónde buscar —</div>
+        <h2>Job <em>boards</em></h2>
+        <p class="lede">Where each person should be looking. Generalist boards are noisy; sector-specific ones convert better.</p>
+      </div>
+
+      <div class="card azul">
+        <h3>By person</h3>
+        <div class="table-wrap"><table>
+          <tr><th>Person</th><th>Boards that matter</th></tr>
+          <tr><td><strong>Jack</strong> <span class="badge jack">PE</span></td><td>eFinancialCareers · BuySideHub · PE-Insights · Glassdoor (PE firms) · LinkedIn (firm pages)</td></tr>
+          <tr><td><strong>Rose</strong> <span class="badge rose">Health data</span></td><td>EURAXESS · IQVIA careers · TopHealthJobs · LinkedIn (set alerts: "epidemiologist Madrid")</td></tr>
+          <tr><td><strong>Calum</strong> <span class="badge calum">Evaluation</span></td><td>EvalCommunity · Devex · ReliefWeb · UNjobs · AECID · UNWTO careers</td></tr>
+          <tr><td><strong>Mamina</strong> <span class="badge mamina">Freelance</span></td><td>Malt · Toptal · ATA / UPTA (autónomo bodies) · LinkedIn ProFinder</td></tr>
+        </table></div>
       </div>
 
       <div class="card">
-        <h3>For Jack — Private Equity &amp; Finance <span class="badge jack">Jack</span></h3>
-        <h4>Specialist boards</h4>
-        <ul>
-          <li><a href="https://www.efinancialcareers.es/" target="_blank">eFinancialCareers Spain</a> — standard for IB / PE / hedge funds</li>
-          <li><a href="https://www.buysidehub.com/private-equity-jobs-madrid" target="_blank">BuySideHub — PE jobs Madrid</a></li>
-          <li><a href="https://www.glassdoor.com/Job/madrid-private-equity-jobs-SRCH_IL.0,6_IC2664239_KO7,21.htm" target="_blank">Glassdoor — Madrid PE</a> (139+ live)</li>
-          <li><a href="https://www.linkedin.com/jobs/private-equity-jobs-madrid" target="_blank">LinkedIn — PE Madrid</a> (214+ live)</li>
-        </ul>
-        <h4>Specialist recruiters</h4>
-        <ul>
-          <li>KEA Consultants · Dartmouth Partners · Walker Hamill · Selby Jennings · PER (Private Equity Recruitment) · Robert Walters · Page Executive · Hays Spain</li>
-        </ul>
-        <h4>Firm portals</h4>
-        <ul>
-          <li><a href="https://www.alantra.com/careers/" target="_blank">Alantra Careers</a></li>
-          <li><a href="https://www.cvc.com/careers/" target="_blank">CVC Careers</a></li>
-          <li><a href="https://eqtgroup.com/careers/" target="_blank">EQT Careers</a></li>
-          <li><a href="https://www.mckinsey.com/careers" target="_blank">McKinsey Careers</a></li>
+        <h3>Generalist (Spain)</h3>
+        <ul class="clean">
+          <li><strong>InfoJobs</strong> — Spanish-language, dominant local board</li>
+          <li><strong>Indeed.es</strong> — bilingual, broad</li>
+          <li><strong>Tecnoempleo</strong> — tech / data roles</li>
+          <li><strong>LinkedIn</strong> — best for English-speaking roles &amp; international firms</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h3>For Calum — Evaluation &amp; International Development <span class="badge calum">Calum</span></h3>
-        <ul>
-          <li><a href="https://www.evalcommunity.com/" target="_blank">EvalCommunity</a></li>
-          <li><a href="https://www.devex.com/jobs/search?filter%5Blocations%5D%5B%5D=Spain" target="_blank">Devex — Spain</a></li>
-          <li><a href="https://reliefweb.int/jobs" target="_blank">ReliefWeb</a></li>
-          <li><a href="https://unjobs.org/duty_stations/mad" target="_blank">UNjobs — Madrid duty station</a></li>
-          <li><a href="https://www.impactpool.org/" target="_blank">ImpactPool</a></li>
-          <li><a href="https://www.developmentaid.org/" target="_blank">DevelopmentAid</a></li>
-          <li><a href="https://www.aecid.es/ES/la-aecid/oferta-empleo-publico" target="_blank">AECID vacancies</a></li>
-          <li><a href="https://www.isciii.es/" target="_blank">ISCIII careers</a></li>
-          <li><a href="https://www.unwto.org/employment" target="_blank">UNWTO employment</a></li>
-          <li><a href="https://oei.int/oficinas/secretaria-general/empleo" target="_blank">OEI careers</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>For Rose — Health Data &amp; Research <span class="badge rose">Rose</span></h3>
-        <ul>
-          <li><a href="https://jobs.iqvia.com/spain" target="_blank">IQVIA Spain</a></li>
-          <li><a href="https://www.tophealthjobs.com/" target="_blank">Top Health Jobs Spain</a></li>
-          <li><a href="https://www.asebio.com/" target="_blank">AseBio — Spanish biotech industry body</a></li>
-          <li><a href="https://www.euraxess.ec.europa.eu/jobs/search?country_alpha=es" target="_blank">EURAXESS Spain — research jobs</a></li>
-          <li><a href="https://www.csic.es/es/el-csic/trabaja-con-nosotros" target="_blank">CSIC vacancies</a></li>
-          <li>Pharma direct: AstraZeneca · GSK · MSD · Lilly · Roche · Novartis (all have Madrid careers pages)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>For Mamina — Freelance &amp; Self-Employment <span class="badge mamina">Mamina</span></h3>
-        <ul>
-          <li><a href="https://www.malt.com/" target="_blank">Malt</a> — dominant European freelance platform</li>
-          <li><a href="https://www.toptal.com/" target="_blank">Toptal</a></li>
-          <li><a href="https://www.workana.com/" target="_blank">Workana</a> — Spanish/LatAm</li>
-          <li><a href="https://www.ata.es/" target="_blank">ATA</a> · <a href="https://www.upta.es/" target="_blank">UPTA</a> — autónomo associations (also business-plan stamping for visa)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Generalist &amp; cross-cutting</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Board</th><th>Notes</th></tr>
-            <tr><td><a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn Spain</a></td><td>Filter by Madrid; dominant for international roles</td></tr>
-            <tr><td><a href="https://www.infojobs.net/" target="_blank">InfoJobs</a></td><td>The biggest Spanish-language board, all sectors</td></tr>
-            <tr><td><a href="https://www.indeed.es/" target="_blank">Indeed Spain</a></td><td>Generalist</td></tr>
-            <tr><td><a href="https://www.tecnoempleo.com/" target="_blank">Tecnoempleo</a></td><td>Tech-only — relevant for Rose</td></tr>
-            <tr><td><a href="https://www.getmanfred.com/" target="_blank">Manfred</a></td><td>Tech-focused Spanish board</td></tr>
-            <tr><td><a href="https://www.hacesfalta.org/" target="_blank">Hacesfalta</a></td><td>NGO sector</td></tr>
-          </table>
-        </div>
-      </div>
+      <p class="italic-flavor">Full list: <a href="job-boards.md">job-boards.md</a>.</p>
     </section>
 
-    <!-- ══ PRACTICAL ══ -->
+
+    <!-- ═══════════ PRACTICAL ═══════════ -->
     <section id="practical" class="page-section">
       <div class="section-hero">
-        <h2>Practical Guide</h2>
-        <p>Cost of living, neighbourhoods, healthcare, banking, Spanish language, Beckham Law, taxes — and a checklist for the first 3 months.</p>
+        <div class="section-eyebrow">— La vida cotidiana —</div>
+        <h2>Practical <em>guide</em></h2>
+        <p class="lede">Costs, healthcare, schools, banking, language, tax. The mechanics of moving in.</p>
       </div>
 
       <div class="card">
-        <h3>Cost of Living (2026)</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Scenario</th><th>Monthly incl. rent</th></tr>
-            <tr><td>Couple, 1–2 bed central (Calum &amp; Rose)</td><td>€3,200–€4,500</td></tr>
-            <tr><td>Family of 3 + dog, 3-bed central (Mamina &amp; Jack)</td><td>€4,500–€6,500</td></tr>
-            <tr><td>+ International school</td><td>+€500–€1,500/child/month</td></tr>
-          </table>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Item</th><th>Cost</th></tr>
-            <tr><td>1-bed central rent</td><td>€1,100–€1,500</td></tr>
-            <tr><td>2-bed central rent</td><td>€1,500–€2,200</td></tr>
-            <tr><td>3-bed Salamanca / Chamberí / Retiro</td><td>€2,200–€3,500</td></tr>
-            <tr><td>Monthly transport (Zone A)</td><td>€54.60 (€21.10 under-26s)</td></tr>
-            <tr><td>Basic utilities (85m²)</td><td>€120–€170</td></tr>
-            <tr><td>Fibre 600Mbps</td><td>€30–€45</td></tr>
-            <tr><td>Restaurant meal (mid)</td><td>€50–€70 for two</td></tr>
-          </table>
-        </div>
-        <p style="font-size:0.8rem;color:var(--muted)">Madrid sits cheaper than Paris or London but rents rose ~11% YoY into 2026. Sources: <a href="https://www.numbeo.com/cost-of-living/in/Madrid" target="_blank">Numbeo</a> · <a href="https://housinganywhere.com/Madrid--Spain/madrid-cost-of-living" target="_blank">HousingAnywhere</a> · <a href="https://www.expatistan.com/cost-of-living/madrid" target="_blank">Expatistan</a></p>
+        <h3>Cost of living (May 2026)</h3>
+        <div class="table-wrap"><table>
+          <tr><th>Scenario</th><th>Monthly all-in (incl. rent)</th></tr>
+          <tr><td>Couple, 1–2 bed central <span class="badge calum">CD</span> <span class="badge rose">RH</span></td><td>€3,200–€4,500</td></tr>
+          <tr><td>Family of 3 + dog, 3-bed central <span class="badge jack">JW</span> <span class="badge mamina">MW</span></td><td>€4,500–€6,500</td></tr>
+          <tr><td>+ International school fees</td><td>+€500–€1,500 per child</td></tr>
+          <tr><td>Madrid transport monthly (Zone A)</td><td>€54.60 · under-7s free</td></tr>
+          <tr><td>Utilities (85 m²)</td><td>€120–€170</td></tr>
+        </table></div>
       </div>
 
-      <div class="card">
-        <h3>Neighbourhoods</h3>
-        <h4>For Calum &amp; Rose (couple + dog)</h4>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Neighbourhood</th><th>Character</th><th>1–2 bed rent</th></tr>
-            <tr><td><strong>Chamberí</strong></td><td>Stately, leafy, food scene</td><td>€1,400–€2,000</td></tr>
-            <tr><td><strong>Malasaña</strong></td><td>Bohemian, music, bars</td><td>€1,100–€1,600</td></tr>
-            <tr><td><strong>La Latina / Lavapiés</strong></td><td>Historic, multicultural, tapas</td><td>€1,000–€1,500</td></tr>
-            <tr><td><strong>Retiro</strong></td><td>Park-side, green, dog-paradise</td><td>€1,400–€2,000</td></tr>
-            <tr><td><strong>Chueca · Justicia</strong></td><td>Central, vibrant</td><td>€1,300–€1,800</td></tr>
-          </table>
-        </div>
-        <h4>For Mamina &amp; Jack (family + dog + baby)</h4>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Neighbourhood</th><th>Character</th><th>3-bed rent</th></tr>
-            <tr><td><strong>Salamanca</strong> <span class="badge gold">Top pick</span></td><td>Premium, walkable to international schools</td><td>€2,500–€3,800</td></tr>
-            <tr><td><strong>El Viso (Chamartín)</strong></td><td>Quiet villas, embassies</td><td>€2,800–€4,000</td></tr>
-            <tr><td><strong>Mirasierra / Conde Orgaz</strong></td><td>Suburban, school catchments</td><td>€2,500–€4,500</td></tr>
-            <tr><td><strong>La Moraleja (Alcobendas)</strong></td><td>Most prestigious suburb; school cluster</td><td>€3,500–€7,000</td></tr>
-            <tr><td><strong>Pozuelo de Alarcón</strong></td><td>Family-friendly, English-bubble</td><td>€2,500–€5,000</td></tr>
-            <tr><td><strong>Chamartín core</strong></td><td>Apartments, family-friendly</td><td>€2,000–€3,000</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Healthcare</h3>
-        <p>Spain's <strong>SNS / SERMAS</strong> (Sistema Nacional de Salud, Madrid branch) is universal and free at the point of use once registered. Top European-quality care. About 25% of Madrileños also have supplementary private cover for faster appointments and consultant choice.</p>
-        <h4>Path to access (employed via HQP)</h4>
-        <ol>
-          <li>Employer registers you with Spanish social security</li>
-          <li>You apply for <strong>Tarjeta Sanitaria Individual (TSI)</strong> at the local Centro de Salud</li>
-          <li>2–4 weeks: TSI in hand; primary care doctor (médico de cabecera) assigned</li>
-        </ol>
-        <h4>DNV / NLV / Autónomo route</h4>
-        <p>Comprehensive private insurance is <strong>required</strong> for the visa application — and must have <em>no co-payments, no waiting periods</em>. Standard expat policies often won't meet this; use a DNV/NLV-compliant policy.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Insurer</th><th>~Monthly per adult</th><th>Notes</th></tr>
-            <tr><td>DKV</td><td>€60–€90</td><td>Most-used for DNV applications</td></tr>
-            <tr><td>Sanitas</td><td>€80–€100</td><td>British Hospital Madrid; popular with expats</td></tr>
-            <tr><td>Adeslas</td><td>€55–€85</td><td>Largest Spanish private insurer</td></tr>
-            <tr><td>Mapfre Salud</td><td>€65–€90</td><td>Solid family plans</td></tr>
-          </table>
-        </div>
-        <p>For families: <strong>Sanitas</strong> is the most-recommended for English-speaking paediatrics; the British Hospital of Madrid (Sanitas La Moraleja) is the standard expat-family fallback.</p>
-      </div>
-
-      <div class="card">
-        <h3>Banking</h3>
-        <p>A Spanish account is essential for empadronamiento, school fees, utilities and many landlords. Open before arrival (BBVA / Santander online) or once you have NIE.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Bank</th><th>Notes</th></tr>
-            <tr><td><strong>BBVA</strong></td><td>"Cuenta Online sin Comisiones"; easy to open with NIE; English app</td></tr>
-            <tr><td><strong>Santander Spain</strong></td><td>Familiar from UK; branches everywhere</td></tr>
-            <tr><td><strong>Sabadell</strong></td><td>UK arm (TSB) makes onboarding easier; English support</td></tr>
-            <tr><td><strong>Openbank</strong></td><td>Fully digital Santander brand; competitive</td></tr>
-            <tr><td><strong>CaixaBank</strong></td><td>National; "Hola Bank" is their expat brand</td></tr>
-            <tr><td><strong>N26 / Revolut / Wise</strong></td><td>Useful interim; accepted by most landlords/utilities</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Spanish language</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Context</th><th>Min. level</th></tr>
-            <tr><td>International PE / consulting / tech / IQVIA</td><td>English OK</td></tr>
-            <tr><td>UN, OECD-adjacent, ISCIII research</td><td>B1–B2</td></tr>
-            <tr><td>Spanish hospital data team</td><td>B2</td></tr>
-            <tr><td>Self-employed serving Spanish clients</td><td>B2</td></tr>
-            <tr><td>Daily life in Madrid</td><td>A2–B1</td></tr>
-            <tr><td>Parent at international school</td><td>English OK</td></tr>
-            <tr><td>Parent at bilingual public school</td><td>B1–B2</td></tr>
-          </table>
-        </div>
-        <p>Resources: Instituto Cervantes / Escuelas Oficiales de Idiomas (cheap, high quality) · AIL Madrid · Don Quijote / Enforex · Italki / Preply (1-1).</p>
-      </div>
-
-      <div class="card">
-        <h3>Tax — Beckham Law</h3>
-        <p>The headline tax-saver. <strong>24% flat rate</strong> on Spanish employment income up to €600,000 for 6 years (instead of progressive 19–47%).</p>
-        <ul>
-          <li>Eligible: HQP, EU Blue Card, DNV (from 2026 Startup Law update)</li>
-          <li>Spouse + children under 25 included (2026 update)</li>
-          <li>Must not have been Spanish tax-resident in the previous 5 years</li>
-          <li>Must apply within 6 months of Spanish social security registration</li>
-          <li>Saves €30k+/yr for high earners (Jack at PE-VP level)</li>
+      <div class="card terr">
+        <h3>Healthcare — DNV/NLV-compliant insurance</h3>
+        <p>DNV and NLV both require private insurance with <strong>no co-pays</strong> and <strong>no waiting periods</strong>. Buy <em>before</em> the visa interview.</p>
+        <ul class="clean">
+          <li><strong>DKV</strong> — most common DNV pick · €60–€90/m/adult</li>
+          <li><strong>Sanitas</strong> — broad network incl. Hospital Sanitas La Moraleja (English consultants) · €80–€100/m</li>
+          <li><strong>Adeslas</strong> — Spain's largest · €55–€85/m</li>
+          <li><strong>Mapfre Salud</strong> — strong family plans · €65–€90/m</li>
         </ul>
-        <p style="font-size:0.82rem;color:var(--muted)">Source: <a href="https://jurospain.com/guides/beckham-law-spain-2026-guide/" target="_blank">JURO Spain — Beckham Law 2026 Guide</a></p>
+        <p>Once on Spanish social security, you can drop private — but most expat parents keep Sanitas for paediatrics.</p>
       </div>
 
       <div class="card">
-        <h3>First 3 months checklist</h3>
+        <h3>Schools — the British curriculum cluster</h3>
+        <p>Apply <strong>1–2 years ahead</strong> for the top schools. Most cluster around Pozuelo, La Moraleja, and Soto de Viñuelas.</p>
+        <div class="table-wrap"><table>
+          <tr><th>School</th><th>Location</th><th>Fees/yr</th></tr>
+          <tr><td><strong>British Council School</strong></td><td>Pozuelo</td><td>€11–15k</td></tr>
+          <tr><td><strong>Runnymede College</strong></td><td>La Moraleja</td><td>€13–18k</td></tr>
+          <tr><td><strong>Hastings School</strong></td><td>3 campuses</td><td>€9–14k</td></tr>
+          <tr><td><strong>King's College Madrid</strong></td><td>Soto de Viñuelas</td><td>€12–16k</td></tr>
+          <tr><td><strong>St George's British International</strong></td><td>Tres Cantos</td><td>€9–13k</td></tr>
+          <tr><td><strong>ICS</strong> (IB)</td><td>Central Madrid</td><td>€13–20k</td></tr>
+        </table></div>
+        <p>For Jack &amp; Mamina's son (almost 1): focus first on <strong>escuelas infantiles</strong> (0–3) — public €150–€300/m, private/bilingual €500–€1,200/m. British Council Early Years takes from 18 months.</p>
+      </div>
+
+      <div class="card">
+        <h3>Banking — open one before you need it</h3>
+        <ul class="clean">
+          <li><strong>BBVA</strong> · easiest with just NIE, strong English app</li>
+          <li><strong>Santander</strong> · familiar to UK arrivals, branches everywhere</li>
+          <li><strong>Sabadell</strong> · ex-TSB owner, English-speaking onboarding</li>
+          <li><strong>Openbank</strong> · Santander's digital arm, fully online, English</li>
+          <li><strong>N26 / Revolut / Wise</strong> · keep as bridge accounts in the first weeks</li>
+        </ul>
+      </div>
+
+      <div class="card azul">
+        <h3>Tax — Beckham vs general</h3>
+        <ul class="clean">
+          <li><strong>Beckham (HQP/DNV):</strong> 24% flat on Spanish-source up to €600k · 47% above · 6 years</li>
+          <li><strong>General:</strong> progressive 19–47%, Madrid region is one of the lowest in Spain</li>
+          <li><strong>Autónomo:</strong> €80/m year-1 social security, then €300–€500 based on income; quarterly IVA (303) + IRPF (130)</li>
+          <li><strong>UK side:</strong> file P85 on leaving · CA3837 if remaining self-employed via DNV · double-tax treaty prevents being taxed twice</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Spanish — how much you need</h3>
+        <ul class="clean">
+          <li><strong>International firms (PE, IQVIA, McKinsey):</strong> English-only is fine</li>
+          <li><strong>Spanish public / clinical / Spanish PE:</strong> B2+ Spanish</li>
+          <li><strong>Daily life:</strong> A2 minimum · B1 makes everything dramatically easier</li>
+          <li><strong>Bureaucracy:</strong> police stations rarely speak English — bring a Spanish speaker for TIE biometrics</li>
+        </ul>
+      </div>
+
+      <div class="card accent">
+        <h3>First 3 months — checklist</h3>
         <ul class="checklist">
-          <li>Get <strong>NIE</strong> (Número de Identidad de Extranjero) from UK consulate or in Spain</li>
-          <li>Open Spanish bank account (start with N26/Revolut, move to BBVA/Santander once NIE issued)</li>
-          <li>Find accommodation (start furnished for first 6 months)</li>
-          <li>Register at the <strong>Padrón Municipal</strong> (empadronamiento) — unlocks everything else</li>
-          <li>Convert visa to <strong>TIE</strong> at the police station within 30 days</li>
-          <li>Register at the Centro de Salud for Tarjeta Sanitaria</li>
-          <li>Register both dogs at the Junta Municipal + get Spanish EU Pet Passport</li>
-          <li>Register the child on empadronamiento + apply for nursery/school place</li>
-          <li>Set up utilities: Iberdrola / Endesa / Naturgy (energy); Movistar / Vodafone / Orange / Másmóvil (telco)</li>
-          <li>Get Madrid Abono Transporte (under-7s free; family discount available)</li>
-          <li>Apply for Beckham Law within 6 months of SS registration</li>
-          <li>Update HMRC: P85 (leaving UK) + CA3837 if remaining self-employed via DNV</li>
+          <li><strong>NIE</strong> — from UK consulate or in Spain</li>
+          <li><strong>Spanish bank account</strong> — N26/Revolut first, then BBVA/Santander</li>
+          <li><strong>Furnished rental</strong> for 6 months while finding feet</li>
+          <li><strong>Empadronamiento</strong> at the Junta Municipal (unlocks everything else)</li>
+          <li><strong>TIE</strong> at police station, within 30 days of arrival</li>
+          <li><strong>Tarjeta Sanitaria</strong> at Centro de Salud</li>
+          <li><strong>Dog registration</strong> at Junta Municipal + Spanish EU Pet Passport</li>
+          <li><strong>Nursery/school</strong> application</li>
+          <li><strong>Beckham Law election</strong> within 6 months of social security registration</li>
+          <li><strong>HMRC:</strong> P85 leaving UK + CA3837 if self-employed via DNV</li>
         </ul>
       </div>
+
+      <p class="italic-flavor">Full detail: <a href="practical-guide.md">practical-guide.md</a>.</p>
     </section>
 
-    <!-- ══ PETS & FAMILY ══ -->
-    <section id="pets" class="page-section">
+
+    <!-- ═══════════ PETS & FAMILY ═══════════ -->
+    <section id="family" class="page-section">
       <div class="section-hero">
-        <h2>Pets &amp; Family</h2>
-        <p>Bringing two dogs from the UK; nurseries and British schools for a one-year-old; the family registration that unlocks everything else.</p>
+        <div class="section-eyebrow">— Los más pequeños —</div>
+        <h2>Pets &amp; <em>family</em></h2>
+        <p class="lede">Two dogs from the UK. One nearly-one-year-old. The logistics that aren't optional.</p>
       </div>
 
-      <div class="card">
-        <h3>Moving two dogs from the UK <span class="badge rose-b">Both households</span></h3>
-        <p>UK pet passports are <strong>no longer valid</strong> for entry to Spain post-Brexit. Both dogs will travel under an Animal Health Certificate (AHC) from a UK Official Vet.</p>
-        <h4>Required documents</h4>
-        <ul>
-          <li><strong>ISO 11784/11785-compliant 15-digit microchip</strong> — must be implanted <em>before</em> the rabies vaccination, otherwise the vaccine is invalid for travel</li>
-          <li><strong>Rabies vaccination</strong> given at least <strong>21 days before travel</strong></li>
-          <li><strong>Animal Health Certificate (AHC)</strong> issued by an OV within <strong>10 days</strong> of travel — replaces the old pet passport</li>
-          <li>Tapeworm treatment is <strong>not</strong> required for entry to Spain (only required for return to UK)</li>
-        </ul>
-        <h4>Timeline — start 8–12 weeks before</h4>
+      <div class="card terr">
+        <h3>Moving the dogs — post-Brexit</h3>
+        <p>UK pet passports are <strong>no longer accepted</strong>. Start <strong>8–12 weeks before</strong> travel.</p>
         <ol>
-          <li>Confirm microchip is ISO-compliant (replace if older)</li>
-          <li>Rabies vaccination at OV — or check existing booster validity</li>
-          <li>Book OV appointment for AHC, 1–10 days before travel</li>
-          <li>Choose route (see below)</li>
-          <li>After arrival: register the dog at the local Junta Municipal de Distrito; obtain Spanish EU Pet Passport (€30–€60)</li>
+          <li><strong>Microchip</strong> — ISO 11784/11785 compliant 15-digit. Must be implanted <em>before</em> rabies vaccination.</li>
+          <li><strong>Rabies vaccination</strong> — at least 21 days before travel.</li>
+          <li><strong>Animal Health Certificate (AHC)</strong> — from a UK Official Veterinarian, within 10 days of travel.</li>
+          <li><strong>Travel</strong> — best route for medium/large dogs: <em>Eurotunnel + drive</em> or <em>Portsmouth–Bilbao ferry</em> (pet-friendly cabin, book early).</li>
+          <li><strong>On arrival</strong> — register at the local Junta Municipal (~€20), get a Spanish EU Pet Passport from a Madrid vet.</li>
         </ol>
-        <h4>Travel routes from UK to Madrid</h4>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Route</th><th>Pros</th><th>Cons</th></tr>
-            <tr><td><strong>Ferry + drive</strong> (Portsmouth–Bilbao / Plymouth–Santander)</td><td>Dog stays with you; many British expats prefer it</td><td>24h crossing; pet-friendly cabin (book early); 4–5h drive to Madrid</td></tr>
-            <tr><td><strong>Eurotunnel + drive</strong></td><td>Dog in car the whole way; smooth</td><td>~24h drive with overnight stop; expensive fuel/tolls</td></tr>
-            <tr><td><strong>Fly cargo</strong></td><td>Fastest</td><td>More stressful; strict crate spec; €400–€1,200 (specialist shipper recommended — PetAir, Airpets)</td></tr>
-            <tr><td><strong>Fly cabin (small dogs &lt;8kg)</strong></td><td>Best for small dogs</td><td>BA &amp; Iberia do not allow pets in cabin from UK; need connection via Lufthansa Frankfurt</td></tr>
-          </table>
-        </div>
-        <h4>Life with a dog in Madrid</h4>
-        <ul>
-          <li><strong>Retiro Park</strong> — dedicated off-leash zones; dog-paradise on summer mornings</li>
-          <li><strong>Casa de Campo</strong> — Madrid's largest park; vast and dog-friendly</li>
-          <li><strong>Madrid Río</strong> — Long linear park along the Manzanares</li>
-          <li>Compulsory registration at Madrid municipal dog database within 30 days (~€20)</li>
-          <li>Third-party liability insurance required for "potentially dangerous breeds" (PPP list — most family breeds excluded)</li>
-          <li>Doggy daycare €15–€25/day (~€250–€350/month full-time)</li>
+        <p>Most family breeds are <em>not</em> on the PPP (potentially dangerous) list. Staffies, Rotties, Akitas are — they need extra liability insurance.</p>
+      </div>
+
+      <div class="card">
+        <h3>The baby — nurseries (0–3)</h3>
+        <ul class="clean">
+          <li><strong>Public escuelas infantiles</strong> — €150–€300/m, income-banded · long waiting lists · empadronamiento required</li>
+          <li><strong>Private bilingual</strong> — €500–€1,200/m · widely available · much shorter waits</li>
+          <li><strong>British Council Early Years (Pozuelo)</strong> — accepts from 18 months · long wait · €700–€1,000/m</li>
+          <li><strong>Hastings School Nursery</strong> — from 18 months · British curriculum</li>
         </ul>
-        <p style="font-size:0.82rem;color:var(--muted)">Sources: <a href="https://www.idealista.com/en/news/lifestyle-in-spain/2026/04/20/848628-moving-to-spain-with-pets-complete-guide-for-2026" target="_blank">Idealista News — Pets to Spain 2026</a> · <a href="https://movingtospain.com/dogs-pets-spain/" target="_blank">MovingToSpain</a> · <a href="https://www.gov.uk/taking-your-pet-abroad" target="_blank">GOV.UK — Taking your pet abroad</a></p>
+        <div class="info-box azul"><strong>Register the baby</strong> at the empadronamiento on arrival — it's the gateway to public nursery, healthcare, and eventually school points.</div>
       </div>
 
       <div class="card">
-        <h3>Nurseries for a 1-year-old <span class="badge mamina">Mamina &amp; Jack</span></h3>
-        <p>Since their son is almost one, the immediate priority is <strong>escuela infantil</strong> (nursery, ages 0–3), not school. But it's worth pencilling in the school pipeline because British school waiting lists are long.</p>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Option</th><th>Cost</th><th>Notes</th></tr>
-            <tr><td><strong>Public nurseries</strong> (Escuela Infantil Pública)</td><td>€150–€300/month (income-tested)</td><td>Long waiting lists; empadronamiento gives priority</td></tr>
-            <tr><td><strong>Private nurseries</strong></td><td>€500–€1,200/month</td><td>English &amp; bilingual options widely available</td></tr>
-            <tr><td><strong>British Council School — Early Years</strong></td><td>€700–€1,000/month</td><td>From 18 months; bilingual; <strong>long waiting list</strong></td></tr>
-            <tr><td><strong>Hastings School Nursery</strong></td><td>€600–€1,000/month</td><td>From 18 months; British curriculum</td></tr>
-            <tr><td><strong>St George's British International — Nursery</strong></td><td>€600–€1,000/month</td><td>From age 2</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>British curriculum primary schools (for later)</h3>
-        <div class="table-wrap">
-          <table>
-            <tr><th>School</th><th>Location</th><th>Fees/yr</th></tr>
-            <tr><td><strong>British Council School</strong></td><td>Pozuelo de Alarcón</td><td>€11–15k</td></tr>
-            <tr><td><strong>Hastings School</strong></td><td>3 campuses</td><td>€9–14k</td></tr>
-            <tr><td><strong>St George's British International</strong></td><td>Tres Cantos</td><td>€9–13k</td></tr>
-            <tr><td><strong>Runnymede College</strong></td><td>La Moraleja</td><td>€13–18k</td></tr>
-            <tr><td><strong>King's College Madrid</strong></td><td>Soto de Viñuelas</td><td>€12–16k</td></tr>
-            <tr><td><strong>International College Spain (ICS)</strong></td><td>Madrid (IB)</td><td>€13–20k</td></tr>
-            <tr><td><strong>The English Montessori School</strong></td><td>La Moraleja</td><td>€10–13k</td></tr>
-          </table>
-        </div>
-        <p>Apply 1–2 years in advance for top schools (Runnymede, British Council School). Required: child's UK birth certificate (apostilled, sworn-translated), vaccination records, passport. Visit + parent interview common; deposit on acceptance often non-refundable.</p>
-      </div>
-
-      <div class="card">
-        <h3>Family registration — Empadronamiento</h3>
-        <p>The <strong>empadronamiento</strong> (Padrón Municipal) is registration at the local town hall. It unlocks:</p>
-        <ul>
-          <li>Public school place</li>
-          <li>Public nursery priority</li>
-          <li>Healthcare card (Tarjeta Sanitaria)</li>
-          <li>Madrid transport pass discounts</li>
-          <li>Many landlords accept the certificate as proof of address</li>
+        <h3>Family-friendly Madrid life</h3>
+        <ul class="clean">
+          <li>Restaurants are <strong>universally child-friendly</strong>. High chairs everywhere. Late dinners with a baby in a buggy are normal.</li>
+          <li>The Madrid metro is buggy-friendly (lifts on most major stations); buses kneel.</li>
+          <li>Under-7s travel free on public transport.</li>
+          <li>Pharmacies are well-stocked for infant essentials; <strong>Doctoralia</strong> finds English-speaking paediatricians.</li>
+          <li>Doggy daycare ~€15–€25/day; many cafés and shops are dog-friendly.</li>
         </ul>
-        <p>Process: book a cita previa with the local Junta Municipal; bring passport, NIE, rental contract or property deed, child's birth certificate. Certificate issued same-day or 1–2 weeks later.</p>
       </div>
     </section>
 
-    <!-- ══ COMMUNITY ══ -->
+
+    <!-- ═══════════ COMMUNITY ═══════════ -->
     <section id="community" class="page-section">
       <div class="section-hero">
-        <h2>Community</h2>
-        <p>British expat communities, parent networks for Mamina &amp; Jack, and professional bodies — PE, evaluation, health data, autónomo.</p>
+        <div class="section-eyebrow">— Tu gente —</div>
+        <h2>Finding your <em>people</em></h2>
+        <p class="lede">Three circles to plug into: British/anglophone, parents, and professional. These are the ones that actually have momentum in 2026.</p>
       </div>
 
       <div class="card">
-        <h3>British &amp; anglophone expats in Madrid</h3>
-        <h4>Big online groups</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/groups/BritishExpatsInSpain/" target="_blank">British Expats in Spain (Facebook)</a> — ~50k+ members, pan-Spain</li>
-          <li><a href="https://www.facebook.com/groups/madridexpatsgroup/" target="_blank">Madrid Expats Group (Facebook)</a> — ~30k members</li>
-          <li><a href="https://www.facebook.com/groups/Expats.in.Madrid/" target="_blank">Expats in Madrid (Facebook)</a></li>
-          <li><a href="https://www.expat.com/forum/viewforum.php?id=382" target="_blank">Expat.com Madrid Forum</a></li>
-          <li>Reddit: <strong>r/Madrid</strong>, <strong>r/GoingToSpain</strong>, <strong>r/expats</strong></li>
-        </ul>
-        <h4>In-person</h4>
-        <ul>
-          <li><a href="https://www.internations.org/madrid-expats" target="_blank">InterNations Madrid</a> — large monthly events</li>
-          <li>British Hub Madrid — informal professional networking</li>
-          <li>St George's Anglican Church (C/ Núñez de Balboa, 43) — English-language services + community board</li>
-          <li>Madrid Polyglot Club; Madrid Hash House Harriers; Madrid Rugby Club</li>
-          <li><a href="https://www.gov.uk/world/organisations/british-embassy-madrid" target="_blank">British Embassy Madrid</a> — Queen's Birthday Party and community events</li>
-        </ul>
-        <h4>Blogs</h4>
-        <ul>
-          <li><a href="https://madridinsider.com/" target="_blank">Madrid Insider</a></li>
-          <li><a href="https://nakedmadrid.com/" target="_blank">Naked Madrid</a></li>
-          <li><a href="https://madridnofrills.com/" target="_blank">Madrid No Frills</a></li>
-          <li><a href="https://www.thelocal.es/" target="_blank">The Local Spain</a></li>
-          <li><a href="https://www.theolivepress.es/" target="_blank">Olive Press</a></li>
+        <h3>British &amp; anglophone</h3>
+        <ul class="clean">
+          <li><strong><a href="https://www.facebook.com/groups/madridexpatsgroup/">Madrid Expats Group</a></strong> · ~30k members, active daily</li>
+          <li><strong><a href="https://www.facebook.com/groups/BritishExpatsInSpain/">British Expats in Spain</a></strong> · ~50k members, Spain-wide</li>
+          <li><strong>St George's Anglican Church</strong> · Núñez de Balboa 43 · strongest physical hub</li>
+          <li><strong>InterNations Madrid</strong> · monthly events at central venues</li>
+          <li><strong>British Hub Madrid</strong> · British professionals networking · LinkedIn group</li>
+          <li><strong>Hash House Harriers</strong> · "running club with a drinking problem" · weekly · very British</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h3>Family / parent communities <span class="badge mamina">Mamina &amp; Jack</span></h3>
-        <ul>
-          <li><a href="https://mumabroad.com/mumabroad-spain/madrid/" target="_blank">MumAbroad Madrid</a> — the standard reference for expat parents</li>
-          <li><a href="https://www.madridforkids.com/" target="_blank">Madrid for Kids</a> — activities, family events</li>
-          <li>English-Speaking Mums Madrid (Facebook) — playdates, recommendations</li>
-          <li><a href="https://www.madridmama.com/" target="_blank">Madrid Mama</a> — blog + community</li>
-          <li>Madrid International Parents Network — Retiro / Casa de Campo meetups</li>
-          <li>English-language baby/toddler classes: Babbery Madrid, Cookies &amp; Books, Music with Mar</li>
-          <li>Sanitas English-speaking paediatricians list at Sanitas La Moraleja</li>
+      <div class="card terr">
+        <h3>Parents <span class="badge mamina">MW</span> <span class="badge jack">JW</span></h3>
+        <ul class="clean">
+          <li><strong><a href="https://mumabroad.com/mumabroad-spain/madrid/">MumAbroad Madrid</a></strong> · the reference site · schools, healthcare, activities</li>
+          <li><strong>English-Speaking Mums Madrid</strong> · Facebook · ~3k members · play dates, swaps</li>
+          <li><strong>Madrid International Parents Network</strong> · meetups at Retiro, Casa de Campo</li>
+          <li><strong>Babbery Madrid</strong> · English pre-school + toddler classes</li>
+          <li><strong>Music with Mar</strong> · English music classes for under-3s</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h3>Professional — Private Equity / Finance <span class="badge jack">Jack</span></h3>
-        <ul>
-          <li><a href="https://www.cfaspain.org/" target="_blank">CFA Society Spain</a> — the main finance professional network</li>
-          <li><a href="https://www.ascri.org/" target="_blank">ASCRI / SpainCap</a> — Spanish PE and VC association; annual conference</li>
-          <li>IESE / IE / LBS alumni networks in Madrid</li>
-          <li><a href="https://www.bolsasymercados.es/" target="_blank">BME — Madrid Stock Exchange</a> events</li>
+      <div class="card azul">
+        <h3>Professional</h3>
+        <ul class="clean">
+          <li><strong>CFA Society Spain</strong> <span class="badge jack">JW</span> · the finance network · events &amp; CFA prep · <a href="https://www.cfaspain.org/">cfaspain.org</a></li>
+          <li><strong>ASCRI / SpainCap</strong> <span class="badge jack">JW</span> · Spanish PE/VC association · <a href="https://www.ascri.org/">ascri.org</a></li>
+          <li><strong>IE / IESE Alumni</strong> <span class="badge jack">JW</span> · huge Madrid PE/consulting alumni networks</li>
+          <li><strong>European Evaluation Society</strong> <span class="badge calum">CD</span> · biennial conference, strong Spanish chapter</li>
+          <li><strong>EvalCommunity / Devex</strong> <span class="badge calum">CD</span> · global M&amp;E networks</li>
+          <li><strong>AseBio</strong> <span class="badge rose">RH</span> · Spanish biotech industry body</li>
+          <li><strong>SESPAS</strong> <span class="badge rose">RH</span> · Spanish public health society</li>
+          <li><strong>Impact Hub Madrid</strong> <span class="badge mamina">MW</span> · co-working + founder events</li>
+          <li><strong>Madrid Female Founders</strong> <span class="badge mamina">MW</span> · in-person meetups · LinkedIn</li>
         </ul>
       </div>
 
       <div class="card">
-        <h3>Professional — Evaluation &amp; Policy <span class="badge calum">Calum</span></h3>
-        <ul>
-          <li>Sociedad Española de Evaluación de Políticas Públicas</li>
-          <li>EvalSDGs Spain</li>
-          <li><a href="https://www.europeanevaluation.org/" target="_blank">European Evaluation Society (EES)</a></li>
-          <li><a href="https://www.evalcommunity.com/" target="_blank">EvalCommunity</a></li>
-          <li><a href="https://www.devex.com/" target="_blank">Devex Community</a></li>
-          <li>Red Iberoamericana de Evaluación</li>
-          <li><a href="https://www.realinstitutoelcano.org/" target="_blank">Real Instituto Elcano</a> — open events</li>
-          <li>Fundación Alternativas — progressive policy events</li>
+        <h3>Apps for daily life</h3>
+        <ul class="clean">
+          <li><strong>Cabify</strong> · Spanish-origin, most reliable ride-hail · also Bolt &amp; FreeNow</li>
+          <li><strong>Glovo</strong> · food + groceries delivery</li>
+          <li><strong>Wallapop</strong> · Spanish Vinted/Gumtree</li>
+          <li><strong>Idealista</strong> · property + flatmates</li>
+          <li><strong>EMT Madrid / Metro Madrid</strong> · public transport</li>
+          <li><strong>Doctoralia</strong> · book English-speaking doctors</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h3>Professional — Health &amp; Data <span class="badge rose">Rose</span></h3>
-        <ul>
-          <li><a href="https://www.seepidemiologia.es/" target="_blank">Sociedad Española de Epidemiología</a></li>
-          <li><a href="https://www.sespas.es/" target="_blank">SESPAS — Public health professional body</a></li>
-          <li><a href="https://www.asebio.com/" target="_blank">AseBio — Biotech industry body</a></li>
-          <li>Foro Madrid Salud — innovation forum</li>
-          <li>LinkedIn groups: "Health Data Spain", "Real-World Evidence Spain", "Pharma &amp; Biotech Madrid"</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Professional — Self-Employed / Freelance <span class="badge mamina">Mamina</span></h3>
-        <ul>
-          <li><a href="https://www.ata.es/" target="_blank">ATA — Federación de Autónomos</a> (also stamps business plans for Autónomo visa)</li>
-          <li><a href="https://www.upta.es/" target="_blank">UPTA — Profesionales y Trabajadores Autónomos</a></li>
-          <li><a href="https://madrid.impacthub.net/" target="_blank">Impact Hub Madrid</a> — co-working + community</li>
-          <li>Madrid Female Founders — LinkedIn group + in-person meetups</li>
-          <li>Meetup groups: "Madrid Solopreneurs", "Madrid Freelance &amp; Remote Workers"</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Day-to-day apps</h3>
-        <ul>
-          <li><strong>Glovo / Uber Eats / Just Eat</strong> — food delivery</li>
-          <li><strong>Cabify / Uber / Bolt / FreeNow</strong> — ride-hailing (Cabify is Spanish; most reliable)</li>
-          <li><strong>Wallapop</strong> — second-hand / Gumtree-equivalent</li>
-          <li><strong>Idealista</strong> — property + flatmates + short stays</li>
-          <li><strong>Doctoralia</strong> — find English-speaking GPs / paediatricians</li>
-          <li><strong>Metro Madrid / EMT</strong> — transport</li>
-          <li><strong>Coverflex</strong> — salary benefits some employers use</li>
-        </ul>
-      </div>
+      <p class="italic-flavor">Full directory: <a href="blogs-and-community.md">blogs-and-community.md</a>.</p>
     </section>
 
   </main>
 </div>
 
+<footer>
+  Hecho con <span class="accent">cariño</span> · May 2026 · for Calum, Rose, Mamina &amp; Jack
+</footer>
+
 <script>
+  // Tab switching
   function show(id) {
     document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('nav.sidebar a').forEach(a => a.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.getElementById('nav-' + id).classList.add('active');
+    const section = document.getElementById(id);
+    if (section) section.classList.add('active');
+    document.querySelectorAll(`nav.sidebar a[data-target="${id}"]`).forEach(a => a.classList.add('active'));
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    return false;
+  }
+  // Sidebar nav
+  document.querySelectorAll('nav.sidebar a[data-target]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      show(a.dataset.target);
+      history.replaceState(null, '', '#' + a.dataset.target);
+    });
+  });
+  // Home-card nav
+  document.querySelectorAll('.home-card[data-target]').forEach(c => {
+    c.addEventListener('click', e => {
+      e.preventDefault();
+      show(c.dataset.target);
+      history.replaceState(null, '', '#' + c.dataset.target);
+    });
+  });
+  // Direct hash load
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    if (document.getElementById(id)) show(id);
   }
 </script>
 
